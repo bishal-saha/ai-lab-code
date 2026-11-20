@@ -108,7 +108,7 @@ Then change something:
 
 ## Results
 
-See [RESULTS.md](RESULTS.md) once the live run is in. The raw judgements, tables and charts will be in [`results/`](results).
+**Every judge caught every failure; the errors all went the other way.** All five designs on both models caught 100% of the 40 wrong replies. Sonnet passed 97–100% of good replies; Haiku passed 82–94%. Critique-first made Haiku fail 65% of correct escalation replies, by reading the policy more strictly than it's written. Haiku's 1–10 score tilted towards long replies (98% vs 70% passed); length-neutral wording removed the tilt. Pairwise verdicts never flipped with a wrong reply in the pair. The (TPR + TNR − 1) scaling predicted measured changes to within 0.12 points. Each claim, and one design flaw (correct replies' outcome and length are confounded), are in [RESULTS.md](RESULTS.md).
 
 ## Licence
 

@@ -1,0 +1,5 @@
+model,kind,comparisons,swap_consistent,first_position_wins,picked_correct,picked_long
+claude-haiku-5-5,correct_vs_wrong,150,1.0,0.5,1.0,
+claude-haiku-5-5,short_vs_long,150,0.8533,0.54,,0.0733
+claude-sonnet-5-5,correct_vs_wrong,150,1.0,0.5,1.0,
+claude-sonnet-5-5,short_vs_long,150,0.9667,0.5167,,0.0167

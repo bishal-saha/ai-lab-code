@@ -86,8 +86,27 @@ def single_table(rows: list[dict], cases) -> list[dict]:
                 "self_consistency": round(consistent, 4),
                 "pass_rate_fail_short": pass_rate("FAIL", "short"),
                 "pass_rate_fail_long": pass_rate("FAIL", "long"),
-                "pass_rate_pass_short": pass_rate("PASS", "short"),
-                "pass_rate_pass_long": pass_rate("PASS", "long"),
+                # Length is balanced only within the FAIL replies and the correct REFUND replies (every
+                # correct escalation reply is short, every correct decline long), so length comparisons
+                # on good replies use refunds; per-outcome pass rates are reported separately.
+                "pass_rate_refund_short": _subset(
+                    by_id,
+                    ids,
+                    final,
+                    lambda c: c.label == "PASS" and c.outcome == "refund" and c.length == "short",
+                ),
+                "pass_rate_refund_long": _subset(
+                    by_id,
+                    ids,
+                    final,
+                    lambda c: c.label == "PASS" and c.outcome == "refund" and c.length == "long",
+                ),
+                "pass_rate_escalate": _subset(
+                    by_id, ids, final, lambda c: c.label == "PASS" and c.outcome == "escalate"
+                ),
+                "pass_rate_decline": _subset(
+                    by_id, ids, final, lambda c: c.label == "PASS" and c.outcome == "decline"
+                ),
                 **{
                     f"caught_{ft}": _share(
                         [
@@ -125,6 +144,11 @@ def _pass_rate(
             if by_id[i].label == label and by_id[i].length == length
         ]
     )
+
+
+def _subset(by_id: dict, ids: list[str], final: list[str], pred) -> float | None:
+    """Share of the cases matching `pred` that the judge passed."""
+    return _share([v == "PASS" for i, v in zip(ids, final, strict=True) if pred(by_id[i])])
 
 
 def _share(flags: list[bool]) -> float | None:
@@ -253,12 +277,12 @@ def charts(table: list[dict], pairs: list[dict], out: Path) -> None:
     ax.legend(frameon=False, fontsize=8, loc="upper left", bbox_to_anchor=(0, -0.16), ncol=2)
     _save(fig, out / "agreement-vs-tpr")
 
-    # 3. Verbosity: how often wrong replies pass, short vs long.
+    # 3. Length: correct refund replies passed, short vs long (the balanced subset; no wrong reply ever passed).
     fig, ax = plt.subplots(figsize=(9, 4.2), dpi=150)
     for i, (key, label, colour) in enumerate(
         [
-            ("pass_rate_fail_short", "wrong reply, short", "#c7d2fe"),
-            ("pass_rate_fail_long", "wrong reply, long", "#1e1b4b"),
+            ("pass_rate_refund_short", "correct refund reply, short", "#c7d2fe"),
+            ("pass_rate_refund_long", "correct refund reply, long", "#1e1b4b"),
         ]
     ):
         vals = [t[key] or 0 for t in table]
@@ -274,9 +298,11 @@ def charts(table: list[dict], pairs: list[dict], out: Path) -> None:
                 textcoords="offset points",
             )
     ax.set_xticks(list(xs), labels, fontsize=7)
-    ax.set_ylim(0, max(0.3, max((t["pass_rate_fail_long"] or 0) for t in table) * 1.3))
+    ax.set_ylim(0, 1.12)
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
-    ax.set_title("Wrong replies the judge passed, by length", fontsize=12, loc="left", pad=10)
+    ax.set_title(
+        "Correct refund replies the judge passed, by length", fontsize=12, loc="left", pad=10
+    )
     ax.spines[["top", "right"]].set_visible(False)
     ax.legend(frameon=False, fontsize=8, loc="upper left", bbox_to_anchor=(0, -0.16), ncol=2)
     _save(fig, out / "verbosity")
@@ -336,7 +362,7 @@ def main() -> int:
     print(f"{len(rows)} judgements -> results/calibration.csv, pairwise.csv, charts/")
     for t in table:
         print(
-            f"  {SHORT.get(t['model'], t['model']):10} {t['design']:10} TPR {t['tpr']:.0%} [{t['tpr_lo']:.0%}-{t['tpr_hi']:.0%}]  TNR {t['tnr']:.0%}  agree {t['agreement']:.0%}  kappa {t['kappa']:.2f}  long-wrong pass {t['pass_rate_fail_long'] or 0:.0%}  consistent {t['self_consistency']:.0%}  ${t['cost_usd']:.3f}"
+            f"  {SHORT.get(t['model'], t['model']):10} {t['design']:10} TPR {t['tpr']:.0%} [{t['tpr_lo']:.0%}-{t['tpr_hi']:.0%}]  TNR {t['tnr']:.0%}  agree {t['agreement']:.0%}  kappa {t['kappa']:.2f}  refund short/long {t['pass_rate_refund_short']:.0%}/{t['pass_rate_refund_long']:.0%}  escalate {t['pass_rate_escalate']:.0%}  consistent {t['self_consistency']:.0%}  ${t['cost_usd']:.3f}"
         )
     for p in ptable:
         print(
