@@ -9,6 +9,7 @@ The AI Lab is where I test ideas about agents, MCP, RAG, evaluation and AI syste
 | Experiment | Folder | Categories |
 |---|---|---|
 | [Tool Shape Benchmark: Endpoint Wrappers vs Task-Shaped MCP Tools](https://iambishal.com/ai-lab/projects/mcp-tool-shape-benchmark) | [`mcp-tool-shape-benchmark`](mcp-tool-shape-benchmark) | MCP · Evals · Agents |
+| [Poisoned Ticket: Which Prompt-Injection Defences Actually Hold](https://iambishal.com/ai-lab/projects/prompt-injection-defence-benchmark) | [`prompt-injection-defence-benchmark`](prompt-injection-defence-benchmark) | AI Security · Agents · Evals |
 
 ## Use one folder
 
