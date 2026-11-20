@@ -1,0 +1,33 @@
+[project]
+name = "context-rot-benchmark"
+version = "0.1.0"
+description = "Context rot inside a tool loop: one agent, a 24-ticket queue, six context policies and a tool-count study: companion code for the AI Lab on iambishal.com"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=2.0",
+    "matplotlib>=3.9",
+    "kestrel-outfitters @ git+https://github.com/bishal-saha/books-code@dec08d386d3131dce9755d74ff8d643cce4f7a11#subdirectory=_shared/kestrel",
+]
+
+[project.scripts]
+ticket-thirty = "ticket_thirty.run:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ticket_thirty"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+markers = ["live: calls a real model or API; run only with scripts/live_check.py"]
+addopts = "-m 'not live'"

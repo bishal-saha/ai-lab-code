@@ -14,6 +14,7 @@ The AI Lab is where I test ideas about agents, MCP, RAG, evaluation and AI syste
 | [Cut Here: RAG Chunking Strategies, Measured](https://iambishal.com/ai-lab/projects/rag-chunking-benchmark) | [`rag-chunking-benchmark`](rag-chunking-benchmark) | RAG · Evals |
 | [Right Shape, Wrong Number: Structured Outputs, Measured](https://iambishal.com/ai-lab/projects/structured-output-benchmark) | [`structured-output-benchmark`](structured-output-benchmark) | Applied AI · Dev tools · Evals |
 | [Judging the Judge: LLM-as-a-Judge, Calibrated](https://iambishal.com/ai-lab/projects/llm-judge-calibration-benchmark) | [`llm-judge-calibration-benchmark`](llm-judge-calibration-benchmark) | Evals · Applied AI |
+| [Ticket Thirty: Context Rot Inside a Tool Loop](https://iambishal.com/ai-lab/projects/context-rot-benchmark) | [`context-rot-benchmark`](context-rot-benchmark) | Agents · AI Architecture · Evals |
 
 ## Use one folder
 
