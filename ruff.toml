@@ -1,0 +1,11 @@
+# Shared lint and format rules for every folder in this repo.
+line-length = 100
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+# Line length is the formatter's job; it leaves long strings (prompts, tool descriptions) alone on purpose.
+ignore = ["E501"]
+
+[format]
+quote-style = "double"
