@@ -83,9 +83,7 @@ def _bars(summary: list[dict], metric: str, title: str, ylabel: str, path: Path,
     width = 0.36
     for i, design in enumerate(DESIGNS):
         values = [
-            next(
-                (s[metric] or 0 for s in summary if s["model"] == m and s["design"] == design), 0
-            )
+            next((s[metric] or 0 for s in summary if s["model"] == m and s["design"] == design), 0)
             for m in models
         ]
         xs = [j + (i - 0.5) * width for j in range(len(models))]

@@ -46,7 +46,7 @@ uv run python -m tool_shape.report  # summary.csv, by_family.csv and charts/ fro
 
 ## Results
 
-See [RESULTS.md](RESULTS.md) once the live run is in. The raw episodes, summary tables and charts are in [`results/`](results).
+**In short:** task-shaped tools halved tool calls and input tokens and cut the cost per correct answer by 1.5–2.6×, but they did *not* raise accuracy: endpoint wrappers scored 100% on both models, task-shaped tools 99% (Haiku) and 93% (Sonnet), every miss traced to one fact the task-shaped tool left out. Full write-up in [RESULTS.md](RESULTS.md); raw episodes, tables and charts in [`results/`](results).
 
 ## What's here
 

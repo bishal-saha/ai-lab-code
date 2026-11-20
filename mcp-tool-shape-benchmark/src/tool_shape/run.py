@@ -232,26 +232,27 @@ def main(argv: list[str] | None = None) -> int:
         RESULTS.mkdir(exist_ok=True)
         out = RESULTS / "episodes.jsonl"
         meta = RESULTS / "run.json"
-        if not meta.exists():
-            meta.write_text(
-                json.dumps(
-                    {
-                        "started": datetime.now(UTC).isoformat(timespec="seconds"),
-                        "models": [resolve(m) for m in models],
-                        "repeats": args.repeats,
-                        "tasks": len(task_list),
-                        "seed": SEED,
-                        "scale": SCALE,
-                        "effort": "medium",
-                        "max_turns": MAX_TURNS,
-                        "packages": {
-                            p: version(p) for p in ("anthropic", "mcp", "kestrel-outfitters")
-                        },
-                    },
-                    indent=2,
-                )
-                + "\n"
+        # Keep the first start time across resumes; the rest describes this invocation,
+        # so a smoke run on a subset doesn't leave the full matrix mislabelled.
+        started = json.loads(meta.read_text())["started"] if meta.exists() else None
+        meta.write_text(
+            json.dumps(
+                {
+                    "started": started or datetime.now(UTC).isoformat(timespec="seconds"),
+                    "last_run": datetime.now(UTC).isoformat(timespec="seconds"),
+                    "models": [resolve(m) for m in models],
+                    "repeats": args.repeats,
+                    "tasks": len(task_list),
+                    "seed": SEED,
+                    "scale": SCALE,
+                    "effort": "medium",
+                    "max_turns": MAX_TURNS,
+                    "packages": {p: version(p) for p in ("anthropic", "mcp", "kestrel-outfitters")},
+                },
+                indent=2,
             )
+            + "\n"
+        )
         episodes, capped = asyncio.run(
             _matrix(
                 task_list,

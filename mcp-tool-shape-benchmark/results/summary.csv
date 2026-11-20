@@ -1,0 +1,5 @@
+model,design,episodes,success_rate,tool_calls_mean,turns_mean,tool_errors_mean,input_tokens_mean,output_tokens_mean,cost_usd_total,cost_per_success_usd,latency_s_median,breaker_trips,no_answer,errors
+claude-haiku-5-5,endpoints,90,1.0,2.91,2.9,0,7927,391,0.0544,0.0006,4.92,0,0,0
+claude-haiku-5-5,tasks,90,0.9889,1.47,2.08,0,3146,248,0.0208,0.00023,2.85,0,1,0
+claude-sonnet-5-5,endpoints,90,1.0,3.32,2.97,0,6277,269,0.5433,0.00604,4.77,0,0,0
+claude-sonnet-5-5,tasks,90,0.9333,1.39,2.09,0,3123,176,0.3333,0.00397,3.37,0,0,0
