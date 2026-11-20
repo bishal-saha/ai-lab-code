@@ -23,9 +23,19 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHS = ["loop", "graph", "planner", "multi"]
-ARCH_LABELS = {"loop": "Single loop", "graph": "Graph workflow", "planner": "Planner-executor", "multi": "Multi-agent"}
+ARCH_LABELS = {
+    "loop": "Single loop",
+    "graph": "Graph workflow",
+    "planner": "Planner-executor",
+    "multi": "Multi-agent",
+}
 KINDS = ["policy", "multi", "status", "no_order"]
-KIND_LABELS = {"policy": "Refund policy", "multi": "Two intents", "status": "Where is it?", "no_order": "No order id"}
+KIND_LABELS = {
+    "policy": "Refund policy",
+    "multi": "Two intents",
+    "status": "Where is it?",
+    "no_order": "No order id",
+}
 SHORT = {"claude-haiku-5-5": "Haiku 5.5", "claude-sonnet-5-5": "Sonnet 5.5", "fake": "fake"}
 COLOURS = ["#a5b4fc", "#4f46e5", "#1e1b4b"]  # light indigo, brand indigo, deep indigo
 
@@ -43,7 +53,9 @@ def predictability(rows: list[dict]) -> float | None:
     cells: dict[tuple, list[tuple]] = defaultdict(list)
     for r in rows:
         cells[(r["model"], r["arch"], r["condition"], r["scenario"])].append(tuple(r["sequence"]))
-    shares = [Counter(seqs).most_common(1)[0][1] / len(seqs) for seqs in cells.values() if len(seqs) > 1]
+    shares = [
+        Counter(seqs).most_common(1)[0][1] / len(seqs) for seqs in cells.values() if len(seqs) > 1
+    ]
     return round(statistics.mean(shares), 4) if shares else None
 
 
@@ -61,7 +73,12 @@ def summarise(rows: list[dict], by: tuple[str, ...] = ("model", "arch")) -> list
             {
                 "episodes": len(eps),
                 "success": _rate(eps, lambda e: e["success"]),
-                **{f"success_{k}": _rate([e for e in eps if e["kind"] == k], lambda e: e["success"]) for k in KINDS},
+                **{
+                    f"success_{k}": _rate(
+                        [e for e in eps if e["kind"] == k], lambda e: e["success"]
+                    )
+                    for k in KINDS
+                },
                 "success_faults": _rate(faults, lambda e: e["success"]),
                 "violation": _rate(eps, lambda e: e["violation"]),
                 "missed_intent": _rate(multi, lambda e: e["missed_intent"]),
@@ -72,10 +89,17 @@ def summarise(rows: list[dict], by: tuple[str, ...] = ("model", "arch")) -> list
                 "predictability": predictability(eps),
                 "llm_calls_mean": round(statistics.mean(e["llm_calls"] for e in eps), 2),
                 "tool_calls_mean": round(statistics.mean(e["tool_calls"] for e in eps), 2),
-                "input_tokens_mean": round(statistics.mean(e["input_tokens"] + e["cache_read_tokens"] + e["cache_write_tokens"] for e in eps)),
+                "input_tokens_mean": round(
+                    statistics.mean(
+                        e["input_tokens"] + e["cache_read_tokens"] + e["cache_write_tokens"]
+                        for e in eps
+                    )
+                ),
                 "cost_usd_total": round(sum(e["cost_usd"] for e in eps), 4),
                 "cost_per_episode_usd": round(statistics.mean(e["cost_usd"] for e in eps), 5),
-                "cost_per_success_usd": round(sum(e["cost_usd"] for e in eps) / successes, 5) if successes else None,
+                "cost_per_success_usd": round(sum(e["cost_usd"] for e in eps) / successes, 5)
+                if successes
+                else None,
                 "latency_s_median": round(statistics.median(e["latency_s"] for e in eps), 2),
                 "stops": dict(Counter(e["stop"] for e in eps if e["stop"] != "done")),
                 "errors": sum(e["stop"] == "error" for e in eps),
@@ -85,14 +109,33 @@ def summarise(rows: list[dict], by: tuple[str, ...] = ("model", "arch")) -> list
     return out
 
 
-def _bars(ax, summary: list[dict], metric: str, models: list[str], fmt: str = "{:.0%}", scale: float = 1.0) -> None:
+def _bars(
+    ax, summary: list[dict], metric: str, models: list[str], fmt: str = "{:.0%}", scale: float = 1.0
+) -> None:
     width = 0.8 / len(models)
     for i, model in enumerate(models):
-        values = [(next((s[metric] for s in summary if s["model"] == model and s["arch"] == a), None) or 0) * scale for a in ARCHS]
+        values = [
+            (
+                next((s[metric] for s in summary if s["model"] == model and s["arch"] == a), None)
+                or 0
+            )
+            * scale
+            for a in ARCHS
+        ]
         xs = [j + (i - (len(models) - 1) / 2) * width for j in range(len(ARCHS))]
-        bars = ax.bar(xs, values, width, label=SHORT.get(model, model), color=COLOURS[i % len(COLOURS)])
+        bars = ax.bar(
+            xs, values, width, label=SHORT.get(model, model), color=COLOURS[i % len(COLOURS)]
+        )
         for bar, v in zip(bars, values, strict=True):
-            ax.annotate(fmt.format(v), (bar.get_x() + bar.get_width() / 2, bar.get_height()), ha="center", va="bottom", fontsize=8, xytext=(0, 2), textcoords="offset points")
+            ax.annotate(
+                fmt.format(v),
+                (bar.get_x() + bar.get_width() / 2, bar.get_height()),
+                ha="center",
+                va="bottom",
+                fontsize=8,
+                xytext=(0, 2),
+                textcoords="offset points",
+            )
     ax.set_xticks(range(len(ARCHS)), [ARCH_LABELS[a] for a in ARCHS], fontsize=9)
     ax.spines[["top", "right"]].set_visible(False)
 
@@ -108,13 +151,17 @@ def charts(summary: list[dict], rows: list[dict], out: Path) -> None:
     models = sorted({s["model"] for s in summary})
 
     # Success by ticket kind: one heatmap per model.
-    fig, axes = plt.subplots(1, len(models), figsize=(5.6 * len(models), 3.6), dpi=150, squeeze=False)
+    fig, axes = plt.subplots(
+        1, len(models), figsize=(5.6 * len(models), 3.6), dpi=150, squeeze=False
+    )
     for ax, model in zip(axes[0], models, strict=True):
         grid, labels = [], []
         for a in ARCHS:
             line, text = [], []
             for k in KINDS:
-                cell = [r for r in rows if r["model"] == model and r["arch"] == a and r["kind"] == k]
+                cell = [
+                    r for r in rows if r["model"] == model and r["arch"] == a and r["kind"] == k
+                ]
                 v = sum(r["success"] for r in cell) / len(cell) if cell else float("nan")
                 line.append(v)
                 text.append(f"{v:.0%}" if cell else "–")
@@ -123,7 +170,15 @@ def charts(summary: list[dict], rows: list[dict], out: Path) -> None:
         ax.imshow(grid, cmap="Purples", vmin=0, vmax=1, aspect="auto")
         for i, line in enumerate(labels):
             for j, v in enumerate(line):
-                ax.text(j, i, v, ha="center", va="center", fontsize=9, color="white" if grid[i][j] > 0.6 else "#1e1b4b")
+                ax.text(
+                    j,
+                    i,
+                    v,
+                    ha="center",
+                    va="center",
+                    fontsize=9,
+                    color="white" if grid[i][j] > 0.6 else "#1e1b4b",
+                )
         ax.set_xticks(range(len(KINDS)), [KIND_LABELS[k] for k in KINDS], fontsize=8)
         ax.set_yticks(range(len(ARCHS)), [ARCH_LABELS[a] for a in ARCHS], fontsize=8)
         ax.set_title(SHORT.get(model, model), fontsize=11, loc="left")
@@ -131,9 +186,30 @@ def charts(summary: list[dict], rows: list[dict], out: Path) -> None:
     _save(fig, out / "success-by-kind")
 
     for metric, title, ylabel, name, fmt, scale in [
-        ("cost_per_success_usd", "Cost per correctly resolved ticket", "USD per 1,000 correct tickets", "cost-per-success", "{:.1f}", 1000),
-        ("predictability", "Same actions on every repeat", "share of repeats matching the most common action sequence", "predictability", "{:.0%}", 1),
-        ("llm_calls_mean", "LLM calls per ticket", "mean LLM calls per episode", "llm-calls", "{:.1f}", 1),
+        (
+            "cost_per_success_usd",
+            "Cost per correctly resolved ticket",
+            "USD per 1,000 correct tickets",
+            "cost-per-success",
+            "{:.1f}",
+            1000,
+        ),
+        (
+            "predictability",
+            "Same actions on every repeat",
+            "share of repeats matching the most common action sequence",
+            "predictability",
+            "{:.0%}",
+            1,
+        ),
+        (
+            "llm_calls_mean",
+            "LLM calls per ticket",
+            "mean LLM calls per episode",
+            "llm-calls",
+            "{:.1f}",
+            1,
+        ),
     ]:
         fig, ax = plt.subplots(figsize=(8, 4.2), dpi=150)
         _bars(ax, summary, metric, models, fmt, scale)
@@ -146,15 +222,26 @@ def charts(summary: list[dict], rows: list[dict], out: Path) -> None:
         _save(fig, out / name)
 
     # Failure modes: what goes wrong, per design (both models pooled).
-    modes = [("violation", "Money before the check"), ("missed_intent", "Missed second intent"), ("to_human", "Handed to a human"),
-             ("duplicate_replies", "Two replies"), ("invalid_plan", "Invalid plan proposed")]
+    modes = [
+        ("violation", "Money before the check"),
+        ("missed_intent", "Missed second intent"),
+        ("to_human", "Handed to a human"),
+        ("duplicate_replies", "Two replies"),
+        ("invalid_plan", "Invalid plan proposed"),
+    ]
     pooled = {s["arch"]: s for s in summarise(rows, ("arch",))}
     fig, ax = plt.subplots(figsize=(9, 4.2), dpi=150)
     width = 0.8 / len(modes)
     for i, (metric, label) in enumerate(modes):
         values = [pooled.get(a, {}).get(metric) or 0 for a in ARCHS]
         xs = [j + (i - (len(modes) - 1) / 2) * width for j in range(len(ARCHS))]
-        ax.bar(xs, values, width, label=label, color=["#c7d2fe", "#818cf8", "#4f46e5", "#3730a3", "#1e1b4b"][i])
+        ax.bar(
+            xs,
+            values,
+            width,
+            label=label,
+            color=["#c7d2fe", "#818cf8", "#4f46e5", "#3730a3", "#1e1b4b"][i],
+        )
     ax.set_xticks(range(len(ARCHS)), [ARCH_LABELS[a] for a in ARCHS], fontsize=9)
     ax.set_ylim(0, 1.05)
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))

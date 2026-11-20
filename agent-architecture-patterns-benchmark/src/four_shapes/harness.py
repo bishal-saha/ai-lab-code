@@ -60,8 +60,15 @@ async def run_episode(
         ep.stop = stop.reason
         ep.error = str(stop)
     except Exception as err:  # an API or transport failure fails the episode, not the run
-        ep.stop = "error"
-        ep.error = f"{type(err).__name__}: {err}"
+        while (
+            isinstance(err, ExceptionGroup) and err.exceptions
+        ):  # the MCP client's task group wraps it
+            err = err.exceptions[0]
+        if isinstance(err, Stop):
+            ep.stop, ep.error = err.reason, str(err)
+        else:
+            ep.stop = "error"
+            ep.error = f"{type(err).__name__}: {err}"
     ep.latency_s = round(time.perf_counter() - started, 3)
 
     g = grade(s, ledger)
