@@ -1,0 +1,9 @@
+strategy,model,questions,accuracy,accuracy_table,accuracy_heading,accuracy_prose,hybrid_recall@5,correct_without_hit,wrong_with_hit,cost_usd
+F512o,claude-haiku-5-5,204,0.9216,0.8833,0.9375,1.0,0.8824,13,5,0.0615
+F512o,claude-sonnet-5-5,204,0.9559,0.925,1.0,1.0,0.8824,15,0,1.2251
+R512,claude-haiku-5-5,204,0.8382,0.75,0.9062,1.0,0.7843,11,0,0.0596
+R512,claude-sonnet-5-5,204,0.8627,0.775,0.9688,1.0,0.7843,16,0,1.1977
+S+H,claude-haiku-5-5,204,0.8775,0.7917,1.0,1.0,0.8725,1,0,0.0246
+S+H,claude-sonnet-5-5,204,0.8775,0.7917,1.0,1.0,0.8725,1,0,0.4849
+S+H+C,claude-haiku-5-5,204,0.8922,0.8167,1.0,1.0,0.8971,0,1,0.0335
+S+H+C,claude-sonnet-5-5,204,0.9167,0.8583,1.0,1.0,0.8971,4,0,0.6701

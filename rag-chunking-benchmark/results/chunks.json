@@ -3,42 +3,48 @@
     "chunks": 95,
     "mean_tokens": 161.8,
     "embedded_tokens": 15373,
-    "index_seconds": 6.23
+    "index_seconds": 5.33
   },
   "F256o": {
     "chunks": 102,
     "mean_tokens": 219.7,
     "embedded_tokens": 22413,
-    "index_seconds": 5.84
+    "index_seconds": 5.57
   },
   "F512o": {
     "chunks": 51,
     "mean_tokens": 307.5,
     "embedded_tokens": 15681,
-    "index_seconds": 6.54
+    "index_seconds": 6.51
   },
   "R512": {
     "chunks": 53,
     "mean_tokens": 290.1,
     "embedded_tokens": 15373,
-    "index_seconds": 6.92
+    "index_seconds": 6.99
   },
   "S": {
     "chunks": 235,
     "mean_tokens": 65.6,
     "embedded_tokens": 15419,
-    "index_seconds": 7.62
+    "index_seconds": 7.46
   },
   "S+H": {
     "chunks": 235,
     "mean_tokens": 73.5,
     "embedded_tokens": 17275,
-    "index_seconds": 8.29
+    "index_seconds": 7.86
   },
   "SEM": {
     "chunks": 386,
     "mean_tokens": 39.8,
     "embedded_tokens": 15373,
-    "index_seconds": 10.5
+    "index_seconds": 10.9
+  },
+  "S+H+C": {
+    "chunks": 235,
+    "mean_tokens": 128.7,
+    "embedded_tokens": 30248,
+    "index_seconds": 11.9
   }
 }

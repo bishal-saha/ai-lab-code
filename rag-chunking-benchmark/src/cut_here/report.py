@@ -220,7 +220,7 @@ def charts(table: list[dict], answers: list[dict], out: Path) -> None:
         ax.set_xticks(list(xs0), names)
         ax.set_ylim(0, 1.12)
         ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
-        ax.set_title("Answers follow retrieval", fontsize=12, loc="left", pad=12)
+        ax.set_title("Answer accuracy against recall@5", fontsize=12, loc="left", pad=12)
         ax.spines[["top", "right"]].set_visible(False)
         ax.legend(frameon=False, fontsize=8, ncol=3, loc="upper left", bbox_to_anchor=(0, -0.08))
         _save(fig, out / "answers-vs-recall")

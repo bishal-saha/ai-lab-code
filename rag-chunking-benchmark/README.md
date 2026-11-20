@@ -108,7 +108,7 @@ Then change something. Retrieval is free, so `uv run cut-here --retrieval` shows
 
 ## Results
 
-See [RESULTS.md](RESULTS.md) once the paid steps are in. The raw retrieval rows, tables and charts are in [`results/`](results).
+**The heading path did most of the work.** Structure-aware chunks without it scored 25% recall@5. The same chunks with `Product > Specifications` prefixed scored 87% (95% with dense retrieval), and 100% on heading-dependent questions. Semantic chunking also scored 25%, and overlap added chunks without adding recall. Plain 510-token chunks matched S+H on recall and beat it on end-to-end answers (Sonnet 96% vs 88%), at 2.5× the answer cost, because a reader can stitch context across passages. Contextual retrieval helped hybrid and BM25 but hurt dense, by copying facts into neighbouring chunks. Each claim is judged in [RESULTS.md](RESULTS.md); raw rows, tables and charts are in [`results/`](results).
 
 ## Licence
 
