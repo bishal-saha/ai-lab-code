@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000724     Date   07/01/2025
+Customer   Kavya Fischer  /  GB
+
+Spark power bank    2    £194.99    £389.98
+Fernhill pruning shears    3    £431.99    £1,295.97
+Breeze desk fan    1    £269.99    £269.99
+
+Sub total: £1,955.94
+VAT (20%): £391.19
+Shippng: £7.95
+Amount due: £2,355.08
+Payment due: 06/02/2025

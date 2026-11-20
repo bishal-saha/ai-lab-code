@@ -1,0 +1,19 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your credit note CN-2025-0001411
+
+Hi Noah,
+
+Please find your credit note below. Reference CN-2025-0001411, issued 12 February 2025.
+
+Saltmarsh lounger (edition 2) | 3 | €245.99 | €737.97
+Bayleaf bistro set | 3 | €94.99 | €284.97
+
+Subtotal: €1,022.94
+VAT (21%): €214.82
+Shipping: €8.95
+Amount to be credited: €1,246.71
+
+Refund to original payment method
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

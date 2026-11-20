@@ -1,0 +1,18 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000459
+
+Hi Quinn,
+
+Please find your invoice below. Reference INV-2025-0000459, issued December 23, 2025.
+
+Ember two-person tent (edition 2) | 1 | $375.99 | $375.99
+
+Subtotal: $375.99
+Sales tax (8.25%): $31.02
+Shipping: $9.95
+Amount due: $416.96
+
+Payment due: January 22, 2026
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

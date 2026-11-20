@@ -1,0 +1,15 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001292
+Date: 04/05/2025
+Bill to: Femi Varga (GB)
+
+Item | Qty | Unit price | Amount
+Fernhill pruning shears (edition 2) | 1 | £66.99 | £66.99
+
+Subtotal: £66.99
+VAT (20%): £13.40
+Shipping: £7.95
+Amount due: £88.34
+
+Payment due: 03/06/2025

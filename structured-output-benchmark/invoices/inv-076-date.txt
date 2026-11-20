@@ -1,0 +1,19 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001612
+
+Hi Kavya,
+
+Please find your invoice below. Reference INV-2025-0001612, issued 09/10/2025.
+
+Thornby leaf rake | 2 | £334.99 | £669.98
+Fernhill pruning shears | 1 | £431.99 | £431.99
+
+Subtotal: £1,101.97
+VAT (20%): £220.39
+Shipping: £7.95
+Amount due: £1,330.31
+
+Payment due: 08/11/2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

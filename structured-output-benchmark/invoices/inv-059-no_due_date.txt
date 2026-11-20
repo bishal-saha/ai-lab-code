@@ -1,0 +1,18 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001755
+Date: February 2, 2025
+Bill to: Ava Tanaka (US)
+
+Item | Qty | Unit price | Amount
+Cinder camp stove | 2 | $122.99 | $245.98
+Saltmarsh lounger (edition 2) | 1 | $245.99 | $245.99
+Breeze desk fan | 3 | $269.99 | $809.97
+Thornby leaf rake | 2 | $334.99 | $669.98
+
+Subtotal: $1,971.92
+Sales tax (8.25%): $162.68
+Shipping: $9.95
+Amount due: $2,144.55
+
+Thank you for your business.

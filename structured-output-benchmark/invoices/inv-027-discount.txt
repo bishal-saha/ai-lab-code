@@ -1,0 +1,20 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000513
+Date: May 30, 2025
+Bill to: Hiro Varga (US)
+
+Total before discount: $2,271.92
+
+Item | Qty | Unit price | Amount
+Hollow oak planter (edition 2) | 3 | $197.99 | $593.97
+Driftwood sleeping bag (edition 2) | 3 | $309.99 | $929.97
+Ashby storage crate | 2 | $373.99 | $747.98
+
+Subtotal: $2,271.92
+Discount (10%): -$227.19
+Sales tax (8.25%): $168.69
+Shipping: $9.95
+Amount due: $2,223.37
+
+Payment due: June 29, 2025

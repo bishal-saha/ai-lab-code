@@ -1,0 +1,15 @@
+INVOICE
+Kestrel Outfitters Canada (partner)
+Invoice no. INV-2025-0000790
+Date: 25 April 2025
+Bill to: Umar Moreau (CA)
+
+Item | Qty | Unit price | Amount
+Meadow hose reel | 1 | C$368.55 | C$368.55
+
+Subtotal: C$368.55
+GST (5%): C$18.43
+Shipping: C$12.95
+Amount due: C$399.93
+
+Payment due: 25 May 2025

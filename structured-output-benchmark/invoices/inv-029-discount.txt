@@ -1,0 +1,15 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000928     Date   14 February 2025
+Customer   Isla Gupta  /  GB
+
+Total before discount: £1,810.95
+
+Brook water filter (edition 2)    3    £422.99    £1,268.97
+Meadow hose reel    2    £270.99    £541.98
+
+Sub total: £1,810.95
+Discount (10%): -£181.10
+VAT (20%): £325.97
+Shippng: £7.95
+Amount due: £1,963.77
+Payment due: 16 March 2025

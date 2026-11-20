@@ -1,0 +1,20 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001862
+
+Hi Elena,
+
+Please find your invoice below. Reference INV-2025-0001862, issued February 10, 2025.
+
+ORDER VALUE  $350.97
+
+Hollow oak planter | 3 | $116.99 | $350.97
+
+Subtotal: $350.97
+Sales tax (8.25%): $28.96
+Shipping: $9.95
+Amount due: $389.88
+
+Payment due: March 12, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

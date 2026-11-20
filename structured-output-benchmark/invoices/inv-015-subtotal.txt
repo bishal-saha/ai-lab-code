@@ -1,0 +1,15 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001666     Date   June 29, 2025
+Customer   Tara Becker  /  US
+
+ORDER VALUE  $386.96
+
+Fernhill pruning shears (edition 2)    2    $66.99    $133.98
+Copse picnic bench (edition 2)    1    $54.99    $54.99
+Hollow oak planter (edition 2)    1    $197.99    $197.99
+
+Sub total: $386.96
+Sales tax (8.25%): $31.92
+Shippng: $9.95
+Amount due: $428.83
+Payment due: July 29, 2025

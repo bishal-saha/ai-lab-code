@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000021     Date   March 12, 2025
+Customer   Priya Costa  /  US
+
+Ridgeline 40L pack    1    $77.99    $77.99
+Quarry toolbox    2    $404.99    $809.98
+Bayleaf bistro set (edition 2)    1    $92.99    $92.99
+
+Sub total: $980.96
+Sales tax (8.25%): $80.93
+Shippng: $9.95
+Amount due: $1,071.84
+Payment due: April 11, 2025

@@ -1,0 +1,18 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000490
+
+Hi Quinn,
+
+Please find your invoice below. Reference INV-2025-0000490, issued August 21, 2025.
+
+Thornby leaf rake | 2 | $334.99 | $669.98
+
+Subtotal: $669.98
+Sales tax (8.25%): $55.27
+Shipping: $9.95
+Amount due: seven hundred and thirty-five dollars and twenty cents
+
+Payment due: September 20, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

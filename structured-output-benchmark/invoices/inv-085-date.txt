@@ -1,0 +1,12 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001366     Date   10/12/2025
+Customer   Umar Lopez  /  GB
+
+Fernhill folding chair (edition 2)    3    £192.99    £578.97
+Larkspur seed tray    2    £250.99    £501.98
+
+Sub total: £1,080.95
+VAT (20%): £216.19
+Shippng: £7.95
+Amount due: £1,305.09
+Payment due: 09/01/2026

@@ -1,0 +1,16 @@
+INVOICE
+Kestrel Outfitters Canada (partner)
+Invoice no. INV-2025-0001446
+Date: 30 July 2025
+Bill to: Kavya Jensen (CA)
+
+Item | Qty | Unit price | Amount
+Ashby storage crate | 3 | C$508.63 | C$1,525.89
+Thornby leaf rake | 2 | C$455.59 | C$911.18
+
+Subtotal: C$2,437.07
+GST (5%): C$121.85
+Shipping: C$12.95
+Amount due: C$2,571.87
+
+Payment due: 29 August 2025

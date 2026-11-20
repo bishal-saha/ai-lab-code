@@ -1,0 +1,19 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-jp.example
+Subject: Your invoice INV-2025-0001067
+
+Hi Dev,
+
+Please find your invoice below. Reference INV-2025-0001067, issued 3 July 2025.
+
+Meadow hose reel | 1 | ¥40,648 | ¥40,648
+Hollow oak planter (edition 2) | 3 | ¥29,698 | ¥89,094
+
+Subtotal: ¥129,742
+Consumption tax (10%): ¥12,974
+Shipping: ¥1,500
+Amount due: ¥144,216
+
+Payment due: 2 August 2025
+Kind regards,
+Accounts, Kestrel Outfitters Japan KK (partner)

@@ -1,0 +1,21 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001602
+
+Hi Mei,
+
+Please find your invoice below. Reference INV-2025-0001602, issued 06/10/2025.
+
+Kettlebrook travel kettle | 2 | £26.99 | £53.98
+Hollow oak planter (edition 2) | 3 | £197.99 | £593.97
+Hollow oak planter | 1 | £116.99 | £116.99
+Glow lantern | 2 | £18.99 | £37.98
+
+Subtotal: £802.92
+VAT (20%): £160.58
+Shipping: £7.95
+Amount due: £971.45
+
+Payment due: 05/11/2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

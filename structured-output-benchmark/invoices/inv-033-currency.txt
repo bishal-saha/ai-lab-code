@@ -1,0 +1,15 @@
+INVOICE
+Kestrel Outfitters Canada (partner)
+Invoice no. INV-2025-0001772
+Date: 28 April 2025
+Bill to: Greenway Facilities 226 (CA)
+
+Item | Qty | Unit price | Amount
+Driftwood sleeping bag (edition 2) | 53 | C$421.59 | C$22,344.27
+
+Subtotal: C$22,344.27
+GST (5%): C$1,117.21
+Shipping: C$12.95
+Amount due: C$23,474.43
+
+Payment due: 28 May 2025

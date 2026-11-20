@@ -1,0 +1,20 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001999
+
+Hi Noah,
+
+Please find your invoice below. Reference INV-2025-0001999, issued November 2, 2025.
+
+ORDER VALUE  $743.98
+
+Copse picnic bench | 2 | $371.99 | $743.98
+
+Subtotal: $743.98
+Sales tax (8.25%): $61.38
+Shipping: $9.95
+Amount due: $815.31
+
+Payment due: December 2, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

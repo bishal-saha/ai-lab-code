@@ -1,0 +1,22 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000795
+
+Hi Kavya,
+
+Please find your invoice below. Reference INV-2025-0000795, issued January 12, 2025.
+
+Total before discount: $554.95
+
+Copse picnic bench (edition 2) | 3 | $54.99 | $164.97
+Saltmarsh lounger | 2 | $194.99 | $389.98
+
+Subtotal: $554.95
+Discount (10%): -$55.50
+Sales tax (8.25%): $41.20
+Shipping: $9.95
+Amount due: $550.60
+
+Payment due: February 11, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

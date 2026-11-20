@@ -1,0 +1,14 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001147     Date   July 4, 2025
+Customer   Chloe Nakamura  /  US
+
+Total before discount: $37.98
+
+Glow lantern    2    $18.99    $37.98
+
+Sub total: $37.98
+Discount (10%): -$3.80
+Sales tax (8.25%): $2.82
+Shippng: $9.95
+Amount due: $46.95
+Payment due: August 3, 2025

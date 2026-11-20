@@ -1,0 +1,17 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000532
+Date: 12 March 2025
+Bill to: Tara Silva (DE)
+
+Item | Qty | Unit price | Amount
+Cinder camp stove | 2 | €122.99 | €245.98
+Bayleaf bistro set | 1 | €94.99 | €94.99
+Thornby leaf rake (edition 2) | 3 | €165.99 | €497.97
+
+Subtotal: €838.94
+VAT (21%): €176.18
+Shipping: €8.95
+Amount due: one thousand and twenty-four euros and seven cents
+
+Payment due: 11 April 2025

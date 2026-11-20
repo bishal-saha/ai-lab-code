@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000374     Date   23 June 2025
+Customer   Elena Fischer  /  GB
+
+Saltmarsh lounger (edition 2)    1    £245.99    £245.99
+Larkspur seed tray (edition 2)    1    £297.99    £297.99
+Cinder camp stove    3    £122.99    £368.97
+Cobble underbed box    2    £321.99    £643.98
+
+Sub total: £1,556.93
+VAT (20%): £311.39
+Shippng: £7.95
+Amount due: £1,876.27

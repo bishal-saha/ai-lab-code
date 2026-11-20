@@ -1,0 +1,16 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000615
+Date: 13 October 2025
+Bill to: Ava Lopez (GB)
+
+Item | Qty | Unit price | Amount
+Fernhill folding chair | 3 | £408.99 | £1,226.97
+Cinder camp stove (edition 2) | 2 | £144.99 | £289.98
+
+Subtotal: £1,516.95
+VAT (20%): £303.39
+Shipping: £7.95
+Amount due: £1,828.29
+
+Thank you for your business.

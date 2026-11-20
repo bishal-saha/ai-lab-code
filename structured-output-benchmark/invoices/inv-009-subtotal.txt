@@ -1,0 +1,20 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000387
+Date: March 23, 2025
+Bill to: Yusuf Becker (US)
+
+ORDER VALUE  $1,444.95
+
+Item | Qty | Unit price | Amount
+Fernhill pruning shears | 1 | $431.99 | $431.99
+Hollow oak planter (edition 2) | 1 | $197.99 | $197.99
+Cinder camp stove (edition 2) | 1 | $144.99 | $144.99
+Thornby leaf rake | 2 | $334.99 | $669.98
+
+Subtotal: $1,444.95
+Sales tax (8.25%): $119.21
+Shipping: $9.95
+Amount due: $1,574.11
+
+Payment due: April 22, 2025

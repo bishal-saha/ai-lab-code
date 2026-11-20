@@ -1,0 +1,20 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000090
+
+Hi Umar,
+
+Please find your invoice below. Reference INV-2025-0000090, issued 23 January 2025.
+
+Hollow oak planter (edition 2) | 3 | £197.99 | £593.97
+Glow lantern | 1 | £18.99 | £18.99
+Spark power bank | 3 | £194.99 | £584.97
+
+Subtotal: £1,197.93
+VAT (20%): £239.59
+Shipping: £7.95
+Amount due: £1,445.47
+
+
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

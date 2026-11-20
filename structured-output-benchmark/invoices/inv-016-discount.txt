@@ -1,0 +1,21 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001476
+
+Hi Femi,
+
+Please find your invoice below. Reference INV-2025-0001476, issued 25 January 2025.
+
+Total before discount: £245.98
+
+Cinder camp stove | 2 | £122.99 | £245.98
+
+Subtotal: £245.98
+Discount (10%): -£24.60
+VAT (20%): £44.28
+Shipping: £7.95
+Amount due: £273.61
+
+Payment due: 24 February 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

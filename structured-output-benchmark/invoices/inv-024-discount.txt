@@ -1,0 +1,21 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001217
+
+Hi Liam,
+
+Please find your invoice below. Reference INV-2025-0001217, issued December 24, 2025.
+
+Total before discount: $233.97
+
+Ridgeline 40L pack | 3 | $77.99 | $233.97
+
+Subtotal: $233.97
+Discount (10%): -$23.40
+Sales tax (8.25%): $17.37
+Shipping: $9.95
+Amount due: $237.89
+
+Payment due: January 23, 2026
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

@@ -1,0 +1,16 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001152     Date   13 November 2025
+Customer   Elena Patel  /  GB
+
+ORDER VALUE  £572.94
+
+Brook water filter    1    £96.99    £96.99
+Hearth log basket    3    £32.99    £98.97
+Millbrook shelf unit    1    £181.99    £181.99
+Spark power bank    1    £194.99    £194.99
+
+Sub total: £572.94
+VAT (20%): £114.59
+Shippng: £7.95
+Amount due: £695.48
+Payment due: 13 December 2025

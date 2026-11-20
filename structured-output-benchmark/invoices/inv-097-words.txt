@@ -1,0 +1,18 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000669
+Date: March 21, 2025
+Bill to: Yusuf Moreau (US)
+
+Item | Qty | Unit price | Amount
+Driftwood sleeping bag (edition 2) | 1 | $309.99 | $309.99
+Ashby storage crate | 1 | $373.99 | $373.99
+Saltmarsh lounger (edition 2) | 2 | $245.99 | $491.98
+Copse picnic bench | 2 | $371.99 | $743.98
+
+Subtotal: $1,919.94
+Sales tax (8.25%): $158.40
+Shipping: $9.95
+Amount due: two thousand and eighty-eight dollars and twenty-nine cents
+
+Payment due: April 20, 2025

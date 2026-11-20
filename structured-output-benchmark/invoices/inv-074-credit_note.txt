@@ -1,0 +1,21 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your credit note CN-2025-0000608
+
+Hi Ben,
+
+Please find your credit note below. Reference CN-2025-0000608, issued June 29, 2025.
+
+Copse picnic bench (edition 2) | 1 | $54.99 | $54.99
+Fernhill folding chair (edition 2) | 1 | $192.99 | $192.99
+Ridgeline 40L pack | 2 | $77.99 | $155.98
+Cinder camp stove (edition 2) | 2 | $144.99 | $289.98
+
+Subtotal: $693.94
+Sales tax (8.25%): $57.25
+Shipping: $9.95
+Amount to be credited: $761.14
+
+Refund to original payment method
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

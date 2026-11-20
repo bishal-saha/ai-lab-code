@@ -1,0 +1,18 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000576
+
+Hi Rosa,
+
+Please find your invoice below. Reference INV-2025-0000576, issued 12 April 2025.
+
+Ember two-person tent (edition 2) | 3 | £375.99 | £1,127.97
+
+Subtotal: £1,127.97
+VAT (20%): £225.59
+Shipping: £7.95
+Amount due: £1,361.51
+
+Payment due: 12 May 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

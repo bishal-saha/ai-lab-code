@@ -1,0 +1,17 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000089
+Date: November 14, 2025
+Bill to: Priya Fischer (US)
+
+Item | Qty | Unit price | Amount
+Ashby storage crate | 3 | $373.99 | $1,121.97
+Thornby leaf rake | 1 | $334.99 | $334.99
+Meadow hose reel | 2 | $270.99 | $541.98
+
+Subtotal: $1,998.94
+Sales tax (8.25%): $164.91
+Shipping: $9.95
+Amount due: $2,173.80
+
+Payment due: December 14, 2025

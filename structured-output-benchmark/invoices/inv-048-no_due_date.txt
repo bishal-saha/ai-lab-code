@@ -1,0 +1,18 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001252
+
+Hi Ben,
+
+Please find your invoice below. Reference INV-2025-0001252, issued October 9, 2025.
+
+Saltmarsh lounger | 3 | $194.99 | $584.97
+
+Subtotal: $584.97
+Sales tax (8.25%): $48.26
+Shipping: $9.95
+Amount due: $643.18
+
+
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

@@ -1,0 +1,17 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000841
+Date: February 1, 2025
+Bill to: Kavya Evans (US)
+
+ORDER VALUE  $94.99
+
+Item | Qty | Unit price | Amount
+Bayleaf bistro set | 1 | $94.99 | $94.99
+
+Subtotal: $94.99
+Sales tax (8.25%): $7.84
+Shipping: $9.95
+Amount due: $112.78
+
+Payment due: March 3, 2025

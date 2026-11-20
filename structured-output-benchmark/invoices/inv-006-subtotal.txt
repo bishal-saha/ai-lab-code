@@ -1,0 +1,22 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001166
+
+Hi Hiro,
+
+Please find your invoice below. Reference INV-2025-0001166, issued April 5, 2025.
+
+ORDER VALUE  $609.94
+
+Fernhill pruning shears (edition 2) | 2 | $66.99 | $133.98
+Cinder camp stove (edition 2) | 2 | $144.99 | $289.98
+Bayleaf bistro set (edition 2) | 2 | $92.99 | $185.98
+
+Subtotal: $609.94
+Sales tax (8.25%): $50.32
+Shipping: $9.95
+Amount due: $670.21
+
+Payment due: May 5, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

@@ -1,0 +1,19 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000222
+
+Hi Quinn,
+
+Please find your invoice below. Reference INV-2025-0000222, issued April 6, 2025.
+
+Hearth log basket | 2 | $32.99 | $65.98
+Brook water filter | 1 | $96.99 | $96.99
+
+Subtotal: $162.97
+Sales tax (8.25%): $13.45
+Shipping: $9.95
+Amount due: $186.37
+
+Payment due: May 6, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

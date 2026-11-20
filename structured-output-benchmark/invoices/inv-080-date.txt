@@ -1,0 +1,19 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000067
+
+Hi Grace,
+
+Please find your invoice below. Reference INV-2025-0000067, issued 11/02/2025.
+
+Fernhill folding chair (edition 2) | 2 | £192.99 | £385.98
+Glow lantern | 1 | £18.99 | £18.99
+
+Subtotal: £404.97
+VAT (20%): £80.99
+Shipping: £7.95
+Amount due: £493.91
+
+Payment due: 13/03/2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

@@ -1,0 +1,16 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000259     Date   2 April 2025
+Customer   Sven Lopez  /  GB
+
+Total before discount: £1,308.94
+
+Cinder camp stove (edition 2)    3    £144.99    £434.97
+Larkspur seed tray    2    £250.99    £501.98
+Copse picnic bench    1    £371.99    £371.99
+
+Sub total: £1,308.94
+Discount (10%): -£130.89
+VAT (20%): £235.61
+Shippng: £7.95
+Amount due: £1,421.61
+Payment due: 2 May 2025

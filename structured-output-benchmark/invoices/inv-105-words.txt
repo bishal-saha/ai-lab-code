@@ -1,0 +1,16 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001230
+Date: 1 June 2025
+Bill to: Jonas Hansen (GB)
+
+Item | Qty | Unit price | Amount
+Brook water filter | 1 | £96.99 | £96.99
+Spark power bank | 1 | £194.99 | £194.99
+
+Subtotal: £291.98
+VAT (20%): £58.40
+Shipping: £7.95
+Amount due: three hundred and fifty-eight pounds and thirty-three pence
+
+Payment due: 1 July 2025

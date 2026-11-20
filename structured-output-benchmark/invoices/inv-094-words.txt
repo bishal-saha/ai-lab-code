@@ -1,0 +1,19 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000984
+
+Hi Isla,
+
+Please find your invoice below. Reference INV-2025-0000984, issued 22 October 2025.
+
+Fernhill pruning shears | 3 | €431.99 | €1,295.97
+Larkspur seed tray | 2 | €250.99 | €501.98
+
+Subtotal: €1,797.95
+VAT (21%): €377.57
+Shipping: €8.95
+Amount due: two thousand one hundred and eighty-four euros and forty-seven cents
+
+Payment due: 21 November 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

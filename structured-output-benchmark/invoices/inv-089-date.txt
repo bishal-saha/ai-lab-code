@@ -1,0 +1,11 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001462     Date   05/04/2025
+Customer   Ben Evans  /  GB
+
+Breeze desk fan    2    £269.99    £539.98
+
+Sub total: £539.98
+VAT (20%): £108.00
+Shippng: £7.95
+Amount due: £655.93
+Payment due: 05/05/2025

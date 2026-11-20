@@ -1,0 +1,20 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000272
+
+Hi Vera,
+
+Please find your invoice below. Reference INV-2025-0000272, issued January 29, 2025.
+
+ORDER VALUE  $297.99
+
+Larkspur seed tray (edition 2) | 1 | $297.99 | $297.99
+
+Subtotal: $297.99
+Sales tax (8.25%): $24.58
+Shipping: $9.95
+Amount due: $332.52
+
+Payment due: February 28, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

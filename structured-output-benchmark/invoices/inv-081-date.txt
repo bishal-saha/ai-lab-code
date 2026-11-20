@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001842     Date   08/04/2025
+Customer   Jonas Evans  /  GB
+
+Bayleaf bistro set (edition 2)    3    £92.99    £278.97
+Copse picnic bench    3    £371.99    £1,115.97
+Millbrook shelf unit    3    £181.99    £545.97
+
+Sub total: £1,940.91
+VAT (20%): £388.18
+Shippng: £7.95
+Amount due: £2,337.04
+Payment due: 08/05/2025

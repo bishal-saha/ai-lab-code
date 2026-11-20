@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000702     Date   15 June 2025
+Customer   Chloe Okafor  /  GB
+
+Ridgeline 40L pack (edition 2)    3    £126.99    £380.97
+Millbrook shelf unit    1    £181.99    £181.99
+Glow lantern    1    £18.99    £18.99
+
+Sub total: £581.95
+VAT (20%): £116.39
+Shippng: £7.95
+Amount due: seven hundred and six pounds and twenty-nine pence
+Payment due: 15 July 2025

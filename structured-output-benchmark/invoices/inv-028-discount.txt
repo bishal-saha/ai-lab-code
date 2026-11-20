@@ -1,0 +1,23 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001877
+
+Hi Femi,
+
+Please find your invoice below. Reference INV-2025-0001877, issued November 14, 2025.
+
+Total before discount: $1,103.94
+
+Bayleaf bistro set | 2 | $94.99 | $189.98
+Thornby leaf rake | 1 | $334.99 | $334.99
+Fernhill folding chair (edition 2) | 3 | $192.99 | $578.97
+
+Subtotal: $1,103.94
+Discount (10%): -$110.39
+Sales tax (8.25%): $81.97
+Shipping: $9.95
+Amount due: $1,085.47
+
+Payment due: December 14, 2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

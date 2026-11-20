@@ -1,0 +1,12 @@
+INVOICE   Kestrel Outfitters Japan KK (partner)
+No.  INV-2025-0000008     Date   28 February 2025
+Customer   Wen Costa  /  JP
+
+Fernhill folding chair    1    ¥61,348    ¥61,348
+Breeze desk fan    2    ¥40,498    ¥80,996
+
+Sub total: ¥142,344
+Consumption tax (10%): ¥14,234
+Shippng: ¥1,500
+Amount due: ¥158,078
+Payment due: 30 March 2025

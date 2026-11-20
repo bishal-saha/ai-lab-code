@@ -1,0 +1,18 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000255
+Date: May 31, 2025
+Bill to: Pinecrest Campsite 204 (US)
+
+Total before discount: $983.92
+
+Item | Qty | Unit price | Amount
+Cinder camp stove | 8 | $122.99 | $983.92
+
+Subtotal: $983.92
+Discount (10%): -$98.39
+Sales tax (8.25%): $73.06
+Shipping: $9.95
+Amount due: $968.54
+
+Payment due: June 30, 2025

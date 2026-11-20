@@ -1,0 +1,11 @@
+INVOICE   Kestrel Outfitters Canada (partner)
+No.  INV-2025-0000354     Date   4 February 2025
+Customer   Jonas Okafor  /  CA
+
+Ember two-person tent (edition 2)    1    C$511.35    C$511.35
+
+Sub total: C$511.35
+GST (5%): C$25.57
+Shippng: C$12.95
+Amount due: C$549.87
+Payment due: 6 March 2025

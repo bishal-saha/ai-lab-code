@@ -1,0 +1,18 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001632
+Date: September 29, 2025
+Bill to: Olu Silva (US)
+
+Item | Qty | Unit price | Amount
+Thornby leaf rake (edition 2) | 1 | $165.99 | $165.99
+Cinder camp stove | 1 | $122.99 | $122.99
+Copse picnic bench (edition 2) | 1 | $54.99 | $54.99
+Brook water filter (edition 2) | 1 | $422.99 | $422.99
+
+Subtotal: $766.96
+Sales tax (8.25%): $63.27
+Shipping: $9.95
+Amount due: $840.18
+
+Thank you for your business.

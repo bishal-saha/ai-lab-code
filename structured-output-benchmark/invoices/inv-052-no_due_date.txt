@@ -1,0 +1,21 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0000643
+
+Hi Olu,
+
+Please find your invoice below. Reference INV-2025-0000643, issued 23 March 2025.
+
+Bayleaf bistro set | 2 | €94.99 | €189.98
+Cinder camp stove (edition 2) | 2 | €144.99 | €289.98
+Ridgeline 40L pack | 2 | €77.99 | €155.98
+Hollow oak planter (edition 2) | 3 | €197.99 | €593.97
+
+Subtotal: €1,229.91
+VAT (21%): €258.28
+Shipping: €8.95
+Amount due: €1,497.14
+
+
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

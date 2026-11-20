@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000447     Date   15 October 2025
+Customer   Olu Tanaka  /  GB
+
+Ember two-person tent (edition 2)    1    £375.99    £375.99
+Thornby leaf rake    2    £334.99    £669.98
+Larkspur seed tray (edition 2)    1    £297.99    £297.99
+
+Sub total: £1,343.96
+VAT (20%): £268.79
+Shippng: £7.95
+Amount due: £1,620.70
+Payment due: 14 November 2025

@@ -1,0 +1,15 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001633
+Date: 04/09/2025
+Bill to: Tara Patel (GB)
+
+Item | Qty | Unit price | Amount
+Bayleaf bistro set | 2 | £94.99 | £189.98
+
+Subtotal: £189.98
+VAT (20%): £38.00
+Shipping: £7.95
+Amount due: £235.93
+
+Payment due: 04/10/2025

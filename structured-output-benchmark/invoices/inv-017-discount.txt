@@ -1,0 +1,14 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001626     Date   12 September 2025
+Customer   Zara Okafor  /  DE
+
+Total before discount: €200.97
+
+Fernhill pruning shears (edition 2)    3    €66.99    €200.97
+
+Sub total: €200.97
+Discount (10%): -€20.10
+VAT (21%): €37.98
+Shippng: €8.95
+Amount due: €227.80
+Payment due: 12 October 2025

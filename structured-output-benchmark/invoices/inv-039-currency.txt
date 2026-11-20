@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Canada (partner)
+No.  INV-2025-0000133     Date   15 August 2025
+Customer   Zara Dubois  /  CA
+
+Fernhill pruning shears    2    C$587.51    C$1,175.02
+Driftwood sleeping bag (edition 2)    3    C$421.59    C$1,264.77
+Thornby leaf rake (edition 2)    2    C$225.75    C$451.50
+
+Sub total: C$2,891.29
+GST (5%): C$144.56
+Shippng: C$12.95
+Amount due: C$3,048.80
+Payment due: 14 September 2025

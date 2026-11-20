@@ -1,0 +1,15 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001434
+Date: 08/05/2025
+Bill to: Jonas Young (GB)
+
+Item | Qty | Unit price | Amount
+Brook water filter | 3 | £96.99 | £290.97
+
+Subtotal: £290.97
+VAT (20%): £58.19
+Shipping: £7.95
+Amount due: £357.11
+
+Payment due: 07/06/2025

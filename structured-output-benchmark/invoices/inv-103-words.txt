@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001871     Date   October 18, 2025
+Customer   Elena Hansen  /  US
+
+Larkspur seed tray (edition 2)    3    $297.99    $893.97
+Hearth log basket    1    $32.99    $32.99
+Cinder camp stove (edition 2)    3    $144.99    $434.97
+
+Sub total: $1,361.93
+Sales tax (8.25%): $112.36
+Shippng: $9.95
+Amount due: one thousand four hundred and eighty-four dollars and twenty-four cents
+Payment due: November 17, 2025

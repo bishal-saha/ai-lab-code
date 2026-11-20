@@ -1,0 +1,17 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001432
+Date: December 11, 2025
+Bill to: Yusuf Varga (US)
+
+Item | Qty | Unit price | Amount
+Fernhill folding chair | 1 | $408.99 | $408.99
+Cobble underbed box | 2 | $321.99 | $643.98
+Glow lantern | 2 | $18.99 | $37.98
+
+Subtotal: $1,090.95
+Sales tax (8.25%): $90.00
+Shipping: $9.95
+Amount due: $1,190.90
+
+Payment due: January 10, 2026

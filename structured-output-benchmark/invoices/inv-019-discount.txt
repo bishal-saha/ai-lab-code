@@ -1,0 +1,18 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000488
+Date: 22 February 2025
+Bill to: Yusuf Lopez (DE)
+
+Total before discount: €363.98
+
+Item | Qty | Unit price | Amount
+Millbrook shelf unit | 2 | €181.99 | €363.98
+
+Subtotal: €363.98
+Discount (10%): -€36.40
+VAT (21%): €68.79
+Shipping: €8.95
+Amount due: €405.32
+
+Payment due: 24 March 2025

@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Japan KK (partner)
+No.  INV-2025-0001119     Date   25 May 2025
+Customer   Jonas Fischer  /  JP
+
+Copse picnic bench (edition 2)    1    ¥8,248    ¥8,248
+Willowmere parasol    2    ¥6,598    ¥13,196
+Breeze desk fan    2    ¥40,498    ¥80,996
+
+Sub total: ¥102,440
+Consumption tax (10%): ¥10,244
+Shippng: ¥1,500
+Amount due: ¥114,184
+Payment due: 24 June 2025

@@ -1,0 +1,17 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000875
+Date: 8 March 2025
+Bill to: Priya Dubois (DE)
+
+Item | Qty | Unit price | Amount
+Saltmarsh lounger | 3 | €194.99 | €584.97
+Larkspur seed tray | 3 | €250.99 | €752.97
+Saltmarsh lounger (edition 2) | 3 | €245.99 | €737.97
+
+Subtotal: €2,075.91
+VAT (21%): €435.94
+Shipping: €8.95
+Amount due: €2,520.80
+
+Payment due: 7 April 2025

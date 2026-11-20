@@ -1,0 +1,20 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your credit note CN-2025-0000245
+
+Hi Quinn,
+
+Please find your credit note below. Reference CN-2025-0000245, issued 3 October 2025.
+
+Kettlebrook travel kettle | 1 | €26.99 | €26.99
+Willowmere parasol | 1 | €43.99 | €43.99
+Quarry toolbox | 1 | €404.99 | €404.99
+
+Subtotal: €475.97
+VAT (21%): €99.95
+Shipping: €8.95
+Amount to be credited: €584.87
+
+Refund to original payment method
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

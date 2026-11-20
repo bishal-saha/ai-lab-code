@@ -1,0 +1,16 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0000891
+Date: February 11, 2025
+Bill to: Sven Rossi (US)
+
+Item | Qty | Unit price | Amount
+Ashby storage crate | 1 | $373.99 | $373.99
+Meadow hose reel | 2 | $270.99 | $541.98
+
+Subtotal: $915.97
+Sales tax (8.25%): $75.57
+Shipping: $9.95
+Amount due: one thousand and one dollars and forty-nine cents
+
+Payment due: March 13, 2025

@@ -1,0 +1,12 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000936     Date   22 March 2025
+Customer   Liam Costa  /  GB
+
+Ember two-person tent    3    £257.99    £773.97
+Hollow oak planter (edition 2)    1    £197.99    £197.99
+
+Sub total: £971.96
+VAT (20%): £194.39
+Shippng: £7.95
+Amount due: £1,174.30
+Payment due: 21 April 2025

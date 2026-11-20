@@ -1,0 +1,18 @@
+INVOICE
+Kestrel Outfitters Japan KK (partner)
+Invoice no. INV-2025-0000380
+Date: 30 May 2025
+Bill to: Rosa Dubois (JP)
+
+Item | Qty | Unit price | Amount
+Larkspur seed tray | 1 | ¥37,648 | ¥37,648
+Fernhill pruning shears | 1 | ¥64,798 | ¥64,798
+Larkspur seed tray (edition 2) | 1 | ¥44,698 | ¥44,698
+Spark power bank | 1 | ¥29,248 | ¥29,248
+
+Subtotal: ¥176,392
+Consumption tax (10%): ¥17,639
+Shipping: ¥1,500
+Amount due: ¥195,531
+
+Payment due: 29 June 2025

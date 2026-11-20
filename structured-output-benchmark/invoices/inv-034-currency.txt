@@ -1,0 +1,21 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-ca.example
+Subject: Your invoice INV-2025-0001417
+
+Hi Olu,
+
+Please find your invoice below. Reference INV-2025-0001417, issued 20 December 2025.
+
+Hollow oak planter | 3 | C$159.11 | C$477.33
+Meadow hose reel (edition 2) | 2 | C$592.95 | C$1,185.90
+Fernhill folding chair | 2 | C$556.23 | C$1,112.46
+Saltmarsh lounger (edition 2) | 3 | C$334.55 | C$1,003.65
+
+Subtotal: C$3,779.34
+GST (5%): C$188.97
+Shipping: C$12.95
+Amount due: C$3,981.26
+
+Payment due: 19 January 2026
+Kind regards,
+Accounts, Kestrel Outfitters Canada (partner)

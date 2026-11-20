@@ -1,0 +1,12 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0000019     Date   19 November 2025
+Customer   Jonas Becker  /  DE
+
+Millbrook shelf unit    3    €181.99    €545.97
+Ridgeline 40L pack (edition 2)    1    €126.99    €126.99
+Hollow oak planter    1    €116.99    €116.99
+
+Sub total: €789.95
+VAT (21%): €165.89
+Shippng: €8.95
+Amount due: €964.79

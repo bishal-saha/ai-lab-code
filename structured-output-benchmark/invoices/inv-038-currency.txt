@@ -1,0 +1,19 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-ca.example
+Subject: Your invoice INV-2025-0000654
+
+Hi Hiro,
+
+Please find your invoice below. Reference INV-2025-0000654, issued 6 November 2025.
+
+Bayleaf bistro set | 3 | C$129.19 | C$387.57
+Brook water filter (edition 2) | 3 | C$575.27 | C$1,725.81
+
+Subtotal: C$2,113.38
+GST (5%): C$105.67
+Shipping: C$12.95
+Amount due: C$2,232.00
+
+Payment due: 6 December 2025
+Kind regards,
+Accounts, Kestrel Outfitters Canada (partner)

@@ -1,0 +1,18 @@
+INVOICE
+Kestrel Outfitters Ltd
+Invoice no. INV-2025-0001967
+Date: 21 December 2025
+Bill to: Priya Silva (GB)
+
+Item | Qty | Unit price | Amount
+Hollow oak planter | 2 | £116.99 | £233.98
+Willowmere parasol | 2 | £43.99 | £87.98
+Driftwood sleeping bag | 2 | £146.99 | £293.98
+Copse picnic bench | 1 | £371.99 | £371.99
+
+Subtotal: £987.93
+VAT (20%): £197.59
+Shipping: £7.95
+Amount due: £1,193.47
+
+Payment due: 20 January 2026

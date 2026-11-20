@@ -1,0 +1,21 @@
+---------- Forwarded message ----------
+From: accounts@kestrel-outfitters.example
+Subject: Your invoice INV-2025-0001444
+
+Hi Sven,
+
+Please find your invoice below. Reference INV-2025-0001444, issued 03/02/2025.
+
+Brook water filter | 2 | £96.99 | £193.98
+Saltmarsh lounger (edition 2) | 2 | £245.99 | £491.98
+Saltmarsh lounger | 3 | £194.99 | £584.97
+Larkspur seed tray (edition 2) | 3 | £297.99 | £893.97
+
+Subtotal: £2,164.90
+VAT (20%): £432.98
+Shipping: £7.95
+Amount due: £2,605.83
+
+Payment due: 05/03/2025
+Kind regards,
+Accounts, Kestrel Outfitters Ltd

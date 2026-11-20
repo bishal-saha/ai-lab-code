@@ -1,0 +1,10 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001075     Date   January 20, 2025
+Customer   Umar Rossi  /  US
+
+Fernhill pruning shears (edition 2)    2    $66.99    $133.98
+
+Sub total: $133.98
+Sales tax (8.25%): $11.05
+Shippng: $9.95
+Amount due: $154.98

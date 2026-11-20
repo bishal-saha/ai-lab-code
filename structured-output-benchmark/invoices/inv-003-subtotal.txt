@@ -1,0 +1,13 @@
+INVOICE   Kestrel Outfitters Ltd
+No.  INV-2025-0001954     Date   February 20, 2025
+Customer   Wen Zhou  /  US
+
+ORDER VALUE  $669.98
+
+Thornby leaf rake    2    $334.99    $669.98
+
+Sub total: $669.98
+Sales tax (8.25%): $55.27
+Shippng: $9.95
+Amount due: $735.20
+Payment due: March 22, 2025
