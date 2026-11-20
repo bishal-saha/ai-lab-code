@@ -1,0 +1,238 @@
+[
+ {
+  "defence": "filter",
+  "bug": "none",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "filter",
+  "bug": "no-tenant",
+  "result": "leaked",
+  "leaked_tenant": true,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 0,
+   "own_runbook": 0,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "filter",
+  "bug": "no-role",
+  "result": "leaked",
+  "leaked_tenant": false,
+  "leaked_role": true,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 5,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "filter",
+  "bug": "owner",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "filter",
+  "bug": "session-set",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "filter",
+  "bug": "no-nullif",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "rls",
+  "bug": "none",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 0,
+   "own_runbook": 0,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "rls",
+  "bug": "no-tenant",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 0,
+   "own_runbook": 0,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "rls",
+  "bug": "no-role",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 0,
+   "own_runbook": 0,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "rls",
+  "bug": "owner",
+  "result": "leaked",
+  "leaked_tenant": true,
+  "leaked_role": true,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "rls",
+  "bug": "session-set",
+  "result": "leaked",
+  "leaked_tenant": true,
+  "leaked_role": false,
+  "positive_control": false,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "rls",
+  "bug": "no-nullif",
+  "result": "error",
+  "detail": "InvalidTextRepresentation: invalid input syntax for type uuid: \"\""
+ },
+ {
+  "defence": "both",
+  "bug": "none",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "both",
+  "bug": "no-tenant",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "both",
+  "bug": "no-role",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "both",
+  "bug": "owner",
+  "result": "safe",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": true,
+  "rows_returned": {
+   "other_help": 10,
+   "other_runbook": 10,
+   "own_runbook": 10,
+   "own_help": 10
+  }
+ },
+ {
+  "defence": "both",
+  "bug": "session-set",
+  "result": "blind",
+  "leaked_tenant": false,
+  "leaked_role": false,
+  "positive_control": false,
+  "rows_returned": {
+   "other_help": 0,
+   "other_runbook": 0,
+   "own_runbook": 0,
+   "own_help": 0
+  }
+ },
+ {
+  "defence": "both",
+  "bug": "no-nullif",
+  "result": "error",
+  "detail": "InvalidTextRepresentation: invalid input syntax for type uuid: \"\""
+ }
+]

@@ -138,3 +138,10 @@ def test_exact_mode_matches_numpy_and_iterative_returns_k(database):
         atol=1e-5,
     )
     assert len(res["in-query-iter"]["ids"]) == 10
+
+
+def test_fact_match_ignores_word_order():
+    from fbr.study_c import has_fact
+
+    assert has_fact("on the Enterprise plan only", "It is available only on the Enterprise plan.")
+    assert not has_fact("on the Enterprise plan only", "It is available on the Team plan.")

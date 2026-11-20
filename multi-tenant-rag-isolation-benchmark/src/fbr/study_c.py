@@ -10,7 +10,7 @@ above it. The sweep in report.py is therefore offline.
 
 Graded in code:
     refused           the reply is NO_ANSWER
-    correct           an answerable question, and the reply contains its fact (known by construction)
+    correct           an answerable question, and the reply states its fact (every word of it, any order)
     supported         the fact is in at least one cited chunk
     invalid_citation  a cited id that wasn't in the prompt (lesson 3's deterministic check)
     confabulated      an unanswerable question, answered anyway
@@ -50,6 +50,13 @@ def user_prompt(question: str, chunks: list[tuple[int, str, float]]) -> str:
     return f"{body}\n\nQuestion: {question}"
 
 
+def has_fact(fact: str, text: str) -> bool:
+    """Every word of the fact appears in the text, in any order: "only on the Enterprise plan" states
+    the fact "on the Enterprise plan only" (an exact-substring match marked such answers wrong)."""
+    words = lambda s: set(re.findall(r"[a-z0-9]+", s.lower()))  # noqa: E731
+    return words(fact) <= words(text)
+
+
 @dataclass
 class Graded:
     refused: bool
@@ -67,8 +74,8 @@ def grade(q: Question, reply: str, chunks: list[tuple[int, str, float]]) -> Grad
     shown = {cid: body for cid, body, _ in chunks}
     invalid = any(c not in shown for c in cited)
     if q.case == "answerable":
-        correct = not refused and q.fact.lower() in text.lower()
-        supported = correct and any(q.fact.lower() in shown.get(c, "").lower() for c in cited)
+        correct = not refused and has_fact(q.fact, text)
+        supported = correct and any(has_fact(q.fact, shown.get(c, "")) for c in cited)
         return Graded(refused, correct, supported, invalid, False, cited)
     return Graded(refused, False, False, invalid, not refused, cited)
 
@@ -102,3 +109,14 @@ def fake_reply(q: Question, chunks) -> str:
     if q.case == "answerable":
         return f"{text.split(': ', 1)[-1]} [chunk:{cid}]"
     return "NO_ANSWER" if d > 0.35 else f"Probably as described here. [chunk:{cid}]"
+
+
+def regrade(rows: list[dict], chunk_text: dict[int, str], qs: dict[str, Question]) -> list[dict]:
+    """Recompute every grade from the stored reply and chunk ids (no model calls)."""
+    out = []
+    for r in rows:
+        chunks = [
+            (i, chunk_text[i], d) for i, d in zip(r["chunk_ids"], r["distances"], strict=True)
+        ]
+        out.append(r | asdict(grade(qs[r["question"]], r["reply"], chunks)))
+    return out

@@ -1,0 +1,19 @@
+defence,bug,result,leaked_tenant,leaked_role,positive_control,detail
+filter,none,safe,False,False,True,
+filter,no-tenant,leaked,True,False,True,
+filter,no-role,leaked,False,True,True,
+filter,owner,safe,False,False,True,
+filter,session-set,safe,False,False,True,
+filter,no-nullif,safe,False,False,True,
+rls,none,safe,False,False,True,
+rls,no-tenant,safe,False,False,True,
+rls,no-role,safe,False,False,True,
+rls,owner,leaked,True,True,True,
+rls,session-set,leaked,True,False,False,
+rls,no-nullif,error,,,,"InvalidTextRepresentation: invalid input syntax for type uuid: """""
+both,none,safe,False,False,True,
+both,no-tenant,safe,False,False,True,
+both,no-role,safe,False,False,True,
+both,owner,safe,False,False,True,
+both,session-set,blind,False,False,False,
+both,no-nullif,error,,,,"InvalidTextRepresentation: invalid input syntax for type uuid: """""

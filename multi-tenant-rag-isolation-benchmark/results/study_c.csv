@@ -1,0 +1,7 @@
+model,case,answers,refused,correct,supported,confabulated,invalid_citation,cost_usd
+claude-haiku-5-5,answerable,80,4,76,76,0,0,0.0167
+claude-haiku-5-5,other-tenant,80,80,0,0,0,0,0.0065
+claude-haiku-5-5,nowhere,40,40,0,0,0,0,0.0028
+claude-sonnet-5-5,answerable,80,14,66,66,0,0,0.2701
+claude-sonnet-5-5,other-tenant,80,80,0,0,0,0,0.1154
+claude-sonnet-5-5,nowhere,40,40,0,0,0,0,0.0547

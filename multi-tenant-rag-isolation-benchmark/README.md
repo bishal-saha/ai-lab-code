@@ -40,7 +40,7 @@ The companion code demonstrates each one on a toy corpus. This experiment measur
   - Help articles are for agents and end users; runbooks only for agents.
   - Every tenant writes about the same 32 subtopics in its own products and numbers. A question therefore lands close to every tenant's answer, which is the hard case for a filter.
   - Facts (limits, durations, menu paths) are fixed per tenant and subtopic, so a grader can tell a right answer from another tenant's.
-- **Embeddings** ([`embed.py`](src/fbr/embed.py)): `voyage-4-lite` (1,024 dimensions), cached in `cache/` and committed, so reruns need no Voyage key.
+- **Embeddings** ([`embed.py`](src/fbr/embed.py)): `voyage-4-lite` (1,024 dimensions), cached in `cache/` after the first run. The cache is 45 MB, so it isn't committed: a rerun embeds the corpus once with a Voyage key, about 0.54M tokens, a few cents.
 - **Database** ([`db.py`](src/fbr/db.py)): the tutorial's schema on a throwaway database:
   - chunks carry their document's tenant and ACL, under a three-column foreign key;
   - an HNSW index (cosine);
@@ -71,7 +71,7 @@ uv run pytest
 uv run filter-before-rank --dry-run        # fake embedder, fake model, every study; $0
 uv run filter-before-rank --estimate
 
-cp .env.example .env                       # ANTHROPIC_API_KEY, VOYAGE_API_KEY (the cache covers the published corpus)
+cp .env.example .env                       # ANTHROPIC_API_KEY, VOYAGE_API_KEY (the corpus is embedded once, a few cents)
 uv run --env-file .env filter-before-rank --max-usd 3
 uv run python -m fbr.report                # tables and charts/
 ```
@@ -108,7 +108,7 @@ Then change something:
 
 ## Results
 
-Not run yet: the hypothesis above was written first. The results, with a verdict on each claim, will be in `RESULTS.md`.
+**Where the filter goes decides whether a tenant gets its answers.** Filtering a global top-10 in the app found 4% of the right chunks (under 2% for small tenants); the filter inside a plain HNSW query was no better than post-filtering a top-40, because HNSW hands back only ef_search candidates; pgvector's iterative scans, the tutorial's setting, restored 98.5-100%. RLS alone behaved like the in-query filter, and worse for the largest tenant. The isolation matrix matched the tutorial cell for cell: each layer caught the other's bugs, and no bug leaked through both. Neither model ever answered an unanswerable question (0 of 240), so the similarity threshold could only refuse good answers; Sonnet over-refused 12 answerable questions. Each claim is judged in [RESULTS.md](RESULTS.md).
 
 ## Licence
 

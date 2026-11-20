@@ -1,7 +1,7 @@
 """Embeddings: Voyage (voyage-4-lite, 1,024 dimensions), cached on disk; and a fake for offline runs.
 
-The cache (`cache/embeddings.npz`) is keyed by input type and a hash of the text and committed with
-the results, so a rerun of the studies needs no Voyage key. The fake embedder is a hashing-trick
+The cache (`cache/embeddings.npz`) is keyed by input type and a hash of the text. It is about 45 MB,
+so it isn't committed: the first run on a machine embeds the corpus once (a few cents). The fake embedder is a hashing-trick
 bag of words: similar texts land close together, which is enough for the tests and the dry run.
 """
 
