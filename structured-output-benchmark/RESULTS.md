@@ -34,7 +34,7 @@ The designed schema (descriptions, `OTHER`, a required-but-nullable due date) to
 
 **3. A closed enum forces a wrong answer; `OTHER` lets the model say "none of these": confirmed, completely.** With the base schema, 30 of 30 JPY/CAD records under structured outputs came back as USD, with the yen or Canadian-dollar amounts left as they were. With `OTHER` in the enum, 90 of 90 came back `OTHER`, ready to route to a person. The same invoice gave four different failures depending only on how the request was made: forced wrong, no record, schema broken, or flagged correctly.
 
-**4. Required-but-nullable beats optional for a missing due date: partly.** No condition ever invented a due date: 0 fabrications in 1,680 records. The optional field failed the other way. The tool conditions dropped a due date that *was* printed in 4 records, which is the article's "the model forgot" case. The required-but-nullable design never did, in 480 records.
+**4. Required-but-nullable beats optional for a missing due date: partly.** No condition ever invented a due date: 0 fabrications in 1,680 records. The optional field failed the other way. The tool conditions dropped a due date that *was* printed in 4 records, which is the article's "the model forgot" case. The required-but-nullable design never did, in 720 records.
 
 **5. An explanation-first `notes` field improves accuracy on the ambiguous traps: not testable.** With and without `notes`, the designed schema scored 100% on both models, so there was no headroom to show a gain. The notes themselves were sensible, for example "Dates read day-first as UK format: issued 2025-10-09". They cost 15–18% more per record.
 
