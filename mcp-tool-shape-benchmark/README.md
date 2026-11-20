@@ -44,6 +44,36 @@ uv run python -m tool_shape.report  # summary.csv, by_family.csv and charts/ fro
 
 `--max-usd` is a hard stop. Episodes are appended to `results/episodes.jsonl` as they finish, so re-running the same command after a stop picks up where it left off. Use `--tasks returns,ticket-3` to run a subset.
 
+### A fresh live run
+
+The runner skips any episode already in `results/episodes.jsonl`; that's how resume works. The published episodes are committed there, so the live command above does nothing until you move them aside:
+
+```bash
+mv results results-published
+uv run --env-file .env tool-shape --models haiku --repeats 1 --tasks delivery --max-usd 0.5   # a few cents: one family, Haiku
+uv run --env-file .env tool-shape --models haiku,sonnet --repeats 3 --max-usd 20             # the published matrix, about $1
+uv run python -m tool_shape.report
+```
+
+Compare your `results/summary.csv` with `results-published/summary.csv`. Expect small differences: models don't give identical answers on every run.
+
+## Learning the code
+
+Read `src/tool_shape/` in this order; each file builds on the one before:
+
+1. **[`tasks.py`](src/tool_shape/tasks.py)**: the 30 tasks and their ground truth, computed from the dataset, never through a server. `_returns` holds the returns-policy logic.
+2. **[`servers/endpoints.py`](src/tool_shape/servers/endpoints.py)**: design A, one tool per API route.
+3. **[`servers/tasks.py`](src/tool_shape/servers/tasks.py)**: design B, five tools that join records and apply the rules. Find the in-transit branch of `order_status`: the one fact it leaves out explains every task-shaped miss in [RESULTS.md](RESULTS.md).
+4. **[`agent.py`](src/tool_shape/agent.py)**: the loop that both designs share: call Claude, run the tools it asks for, nudge once, stop on `submit_answer` or the circuit breaker.
+5. **[`grading.py`](src/tool_shape/grading.py)**: exact comparison of the submitted fields.
+6. **[`run.py`](src/tool_shape/run.py) → [`report.py`](src/tool_shape/report.py)**: the matrix runner (dry run, estimate, cost cap, resume), then the tables and charts.
+
+Then change something. Each of these takes a few lines, and `--dry-run` or `pytest` shows the effect in seconds:
+
+- **Fix the miss:** make `order_status` say "not late yet" for parcels in transit, then re-run the delivery family live (`--tasks delivery`, a few cents) and see whether Sonnet stops answering *late*.
+- **Add a task:** write one in `tasks.py` with its ground truth; the test that checks every task-shaped tool against the ground truth tells you if your tool disagrees.
+- **Make the endpoint wrapper worse:** shorten the endpoint descriptions to one line each and measure what good descriptions were worth.
+
 ## Results
 
 **In short:** task-shaped tools halved tool calls and input tokens and cut the cost per correct answer by 1.5–2.6×, but they did *not* raise accuracy: endpoint wrappers scored 100% on both models, task-shaped tools 99% (Haiku) and 93% (Sonnet), every miss traced to one fact the task-shaped tool left out. Full write-up in [RESULTS.md](RESULTS.md); raw episodes, tables and charts in [`results/`](results).

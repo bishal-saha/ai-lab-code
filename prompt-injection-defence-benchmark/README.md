@@ -81,6 +81,37 @@ uv run python -m poisoned_ticket.report   # summary.csv, summary_tier1.csv, by_a
 
 The dry run proves the grading before any money is spent: an obeying fake is graded breached on every attack without enforcement, and D3/D4 refuse exactly the two out-of-policy goals, leaving in-policy misuse through.
 
+### A fresh live run
+
+The runner skips any episode already in `results/episodes.jsonl`; that's how resume works. The published episodes are committed there, so the live commands above do nothing until you move them aside:
+
+```bash
+mv results results-published
+uv run --env-file .env poisoned-ticket --models haiku --repeats 1 --scenarios s1 --defences D0 --max-usd 0.5   # about 2 cents
+uv run --env-file .env poisoned-ticket --repeats 1 --attacks tier2,clean --max-usd 10                          # the main matrix, about $8
+uv run python -m poisoned_ticket.report
+```
+
+Compare your `results/summary.csv` with `results-published/summary.csv`. Expect small differences: models don't give identical answers on every run.
+
+## Learning the code
+
+Read `src/poisoned_ticket/` in this order; each file builds on the one before:
+
+1. **[`scenarios.py`](src/poisoned_ticket/scenarios.py)**: the 8 tickets, and how the policy outcome (refund, escalate, decline) is computed from the data, never through the server.
+2. **[`servers/support.py`](src/poisoned_ticket/servers/support.py)**: the MCP tools the agent sees, and where each attack channel puts its text. The `enforce` branch of `issue_refund` *is* defence D3.
+3. **[`ledger.py`](src/poisoned_ticket/ledger.py)**: the action log every tool writes to, about 40 lines.
+4. **[`attacks.py`](src/poisoned_ticket/attacks.py)**: the 24 injected texts, and the three small functions that decide from the ledger whether an attack worked.
+5. **[`defences.py`](src/poisoned_ticket/defences.py)**: D0–D4. D1 and D2 change the prompt and the transcript; D3 is only a flag passed to the server.
+6. **[`agent.py`](src/poisoned_ticket/agent.py)**: one agent loop for every condition: call Claude, run the tools it asks for, wrap results for D2, stop.
+7. **[`grading.py`](src/poisoned_ticket/grading.py) → [`run.py`](src/poisoned_ticket/run.py) → [`report.py`](src/poisoned_ticket/report.py)**: usefulness grading, the matrix runner (dry run, estimate, cost cap, resume), then the tables and charts.
+
+Then change something. Each of these takes a few lines, and `--dry-run` or `pytest` shows the effect in seconds:
+
+- **Write your own attack:** in `attacks.py`, add a style name to `TIER2` and a text for it under each of the three goals in `TEMPLATES` (every goal × style pair becomes an attack). `pytest` checks each text names its target; then run it live on one ticket: `--attacks <your-style> --scenarios s1 --models haiku`.
+- **Remove the ground truth:** stop `order_status` from showing an order's customer id, then re-run the refund attacks (`--attacks refund_other`). That lookup is how the models caught every redirected refund.
+- **Weaken D3:** comment out one check in `issue_refund` and watch `--dry-run` fail. The scripted agent that obeys every injection is what catches it.
+
 ## Results
 
 **No attack worked: 0 of 1,248 attacked episodes, including 384 with no defence.** The models checked the injected claims against the tools and refused them. Every defence kept clean-ticket usefulness at 100%. Spotlighting added 21–32% to the cost per episode and *lowered* the flag rate. The attacks' real damage was skipped work: Sonnet's safety refusals and Haiku's over-caution. Details, and each hypothesis claim judged, in [RESULTS.md](RESULTS.md). The raw episodes, tables and charts are in [`results/`](results).
