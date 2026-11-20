@@ -157,3 +157,19 @@ def test_costs_recompute_from_usage(scenarios):
 
 def test_dry_run():
     assert dry_run() == 0
+
+
+def test_jobs_never_share_a_first_message(scenarios):
+    """Two conditions on one ticket must not share a cached prompt (the first pilot did)."""
+    fake = FakeModel(scenarios)
+    seen = []
+    orig = fake.create
+
+    async def spy(**kw):
+        seen.append(str(kw["messages"][0]["content"]))
+        return await orig(**kw)
+
+    fake.create = spy
+    asyncio.run(execute(jobs(1, 1, ["cache", "phase"]), fake, 1e9, 1, None, quiet=True))
+    firsts = {m for m in seen}
+    assert len(firsts) == 2 and all("(job " in m for m in firsts)

@@ -67,7 +67,7 @@ This experiment runs the real support agent on 24 tickets under each lever, one 
 - **The planning model** ([`planning_model.py`](src/bill/planning_model.py)): the article's `ticket_cost.py`, copied verbatim. A test checks it reproduces the article's ten printed lines.
   - `fit()` fills it from the cached baseline's first attempts: steps, prefix, tokens added per step, output per step, real prices, and a tool fee of 0, since these tools are internal.
   - `predict()` maps each condition onto the model's own levers.
-- **Matrix:** 24 tickets × 7 conditions × 3 repeats = 504 tickets. Effort `medium` on both models.
+- **Matrix:** 24 tickets × 7 conditions × 2 repeats = 336 tickets. Three were planned; the pilot cost twice the estimate. Effort `medium` on both models.
 
 ## Run it
 
@@ -75,7 +75,7 @@ This experiment runs the real support agent on 24 tickets under each lever, one 
 uv sync
 uv run pytest                                 # the vendored model, tickets, conditions, accounting; offline
 uv run bill-for-one-ticket --dry-run          # a fake that bills like the API; $0
-uv run bill-for-one-ticket --estimate         # what a live run should cost (about $7)
+uv run bill-for-one-ticket --estimate         # a rough projection (it undercounts: the real run cost $9.09)
 
 cp .env.example .env                          # add ANTHROPIC_API_KEY
 uv run --env-file .env bill-for-one-ticket --cache-min-check      # a few cents
@@ -113,7 +113,7 @@ Then change something:
 
 ## Results
 
-Not run yet: the hypothesis above was written first. The results, with a verdict on each claim, will be in `RESULTS.md`.
+**A cheaper model was the biggest lever here, caching the next, and the article's model predicted the rest once given real step counts.** Haiku cut cost per ticket by 95% and resolved every ticket, as Sonnet did, so the failure costs the article's "weaker lever" argument rests on never arose. Turning caching off raised cost by 86%; a timestamp at the top of the system prompt raised it by 125%, silently. A history cap cost 73% more on these short tickets; phase routing saved 24%, and switching models every call saved 17% instead of costing more. Real input was 2.1x the one-step-times-steps estimate. Filled from an 8-ticket pilot, the article's planning model was within ±25% for 4 of 7 conditions, and for all 7 once averaged over the real step counts. A flaw found in the pilot (conditions sharing a cached prompt for the same ticket) is disclosed and fixed. Each claim is judged in [RESULTS.md](RESULTS.md).
 
 ## Licence
 

@@ -1,0 +1,16 @@
+{
+  "fitted_from_pilot": {
+    "steps": 5,
+    "prefix_tokens": 1923,
+    "tokens_added_per_step": 1335,
+    "output_tokens_per_step": 118,
+    "baseline_mean_steps": 4.46
+  },
+  "spreadsheet": {
+    "attempts": 48,
+    "input_actual_over_naive": 2.099,
+    "cost_actual_over_naive": 2.085
+  },
+  "tickets": 336,
+  "usd": 9.09
+}

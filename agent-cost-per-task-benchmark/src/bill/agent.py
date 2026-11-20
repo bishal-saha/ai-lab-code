@@ -139,12 +139,19 @@ async def attempt(
     scenarios: list[Scenario],
     *,
     budget: Budget | None = None,
+    job_tag: str = "",
 ) -> Attempt:
     ledger = Ledger()
     ledger.current = s.ticket_id
     tools = Tools(data, scenarios, ledger)
     schemas = tools.schemas()
-    prompt = f"Please handle support ticket {s.ticket_id}."
+    # The job tag makes every job's first message unique. Without it, every condition sends the
+    # same prompt for the same ticket, and a condition run minutes after another read that one's
+    # cache (seen in the first pilot). A retry keeps its job's tag: a real retry would resend the
+    # same prompt, so its cache hits are fair.
+    prompt = f"Please handle support ticket {s.ticket_id}." + (
+        f" (job {job_tag})" if job_tag else ""
+    )
     exchanges: list[list[Message]] = []
     summary: str | None = None
     folded = 0  # exchanges already in the summary

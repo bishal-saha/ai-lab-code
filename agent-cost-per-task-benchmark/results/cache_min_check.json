@@ -1,0 +1,58 @@
+{
+  "claude-haiku-5-5:short": {
+    "first": {
+      "input_tokens": 436,
+      "output_tokens": 4,
+      "cache_read": 0,
+      "cache_write": 0
+    },
+    "second": {
+      "input_tokens": 436,
+      "output_tokens": 4,
+      "cache_read": 0,
+      "cache_write": 0
+    }
+  },
+  "claude-haiku-5-5:long": {
+    "first": {
+      "input_tokens": 4,
+      "output_tokens": 4,
+      "cache_read": 0,
+      "cache_write": 8262
+    },
+    "second": {
+      "input_tokens": 4,
+      "output_tokens": 4,
+      "cache_read": 8262,
+      "cache_write": 0
+    }
+  },
+  "claude-sonnet-5-5:short": {
+    "first": {
+      "input_tokens": 436,
+      "output_tokens": 5,
+      "cache_read": 0,
+      "cache_write": 0
+    },
+    "second": {
+      "input_tokens": 436,
+      "output_tokens": 5,
+      "cache_read": 0,
+      "cache_write": 0
+    }
+  },
+  "claude-sonnet-5-5:long": {
+    "first": {
+      "input_tokens": 4,
+      "output_tokens": 5,
+      "cache_read": 0,
+      "cache_write": 8262
+    },
+    "second": {
+      "input_tokens": 4,
+      "output_tokens": 5,
+      "cache_read": 8262,
+      "cache_write": 0
+    }
+  }
+}

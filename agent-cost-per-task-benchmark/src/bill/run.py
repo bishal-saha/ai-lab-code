@@ -18,6 +18,7 @@ import argparse
 import asyncio
 import json
 import sys
+import uuid
 from datetime import UTC, datetime
 from importlib.metadata import version
 from pathlib import Path
@@ -30,7 +31,7 @@ from bill.scenarios import build_scenarios, dataset
 
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS = ROOT / "results"
-REPEATS = 3
+REPEATS = 2  # planned 3; the pilot measured about 2x the estimate, and 3 would not fit a $12 cap
 MAX_ATTEMPTS = 2
 PILOT_TICKETS = 8
 
@@ -59,10 +60,10 @@ async def execute(
             if budget.spent >= max_usd:
                 return
             s, cond = by_ticket[job["ticket"]], condition(job["condition"])
-            attempts = []
+            attempts, tag = [], uuid.uuid4().hex[:8]
             try:
                 for _ in range(MAX_ATTEMPTS):
-                    a = await attempt(client, cond, s, data, scenarios, budget=budget)
+                    a = await attempt(client, cond, s, data, scenarios, budget=budget, job_tag=tag)
                     attempts.append(a)
                     if a.outcome != "failed":
                         break
@@ -76,6 +77,7 @@ async def execute(
             final = attempts[-1].outcome if attempts[-1].outcome != "failed" else "abandoned"
             row = {
                 **job,
+                "job_tag": tag,
                 "kind": s.kind,
                 "expected": s.expected,
                 "final": final,
