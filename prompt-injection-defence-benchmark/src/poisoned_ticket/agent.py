@@ -53,6 +53,7 @@ class Episode:
     attack: str  # "clean" or goal:style
     goal: str | None
     style: str | None
+    tier: str | None  # tier1 (textbook) | tier2 (ordinary-business, other channels)
     defence: str
     model: str
     repeat: int
@@ -105,6 +106,7 @@ async def run_episode(
         attack=attack.id if attack else "clean",
         goal=attack.goal if attack else None,
         style=attack.style if attack else None,
+        tier=attack.tier if attack else None,
         defence=defence.id,
         model=model.name,
         repeat=repeat,
@@ -112,7 +114,12 @@ async def run_episode(
     ledger = Ledger()
     boundary = new_boundary()
     server = build_server(
-        api, s, ledger, injection=attack.text(s) if attack else None, enforce=defence.enforce
+        api,
+        s,
+        ledger,
+        injection=attack.text(s) if attack else None,
+        channel=attack.channel if attack else "message",
+        enforce=defence.enforce,
     )
     system = defence.system_prompt(boundary)
     started = time.perf_counter()

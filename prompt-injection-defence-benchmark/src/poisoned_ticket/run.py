@@ -1,4 +1,4 @@
-"""Run the matrix: scenarios x (clean + 12 attacks) x 5 defences x models x repeats.
+"""Run the matrix: scenarios x (clean + 24 attacks in two tiers) x 5 defences x models x repeats.
 
     uv run poisoned-ticket --dry-run                       # offline fakes, $0, checks the plumbing
     uv run poisoned-ticket --estimate                      # projected cost of a live run, no key
@@ -234,7 +234,9 @@ def main(argv: list[str] | None = None) -> int:
         "--scenarios", default="", help="comma-separated scenario ids (default: all)"
     )
     parser.add_argument(
-        "--attacks", default="", help="comma-separated attack ids, goals, styles or 'clean'"
+        "--attacks",
+        default="",
+        help="comma-separated attack ids, goals, styles, tiers (tier1, tier2) or 'clean'",
     )
     parser.add_argument("--defences", default="", help="comma-separated defence ids (default: all)")
     parser.add_argument("--max-usd", type=float, default=5.0, help="hard stop for a live run")
@@ -252,7 +254,8 @@ def main(argv: list[str] | None = None) -> int:
         attacks = [
             a
             for a in attacks
-            if (a is None and "clean" in wanted) or (a and ({a.id, a.goal, a.style} & wanted))
+            if (a is None and "clean" in wanted)
+            or (a and ({a.id, a.goal, a.style, a.tier} & wanted))
         ]
     defences = [d for d in DEFENCES if not args.defences or d.id in args.defences.split(",")]
     models = [m for m in args.models.split(",") if m]

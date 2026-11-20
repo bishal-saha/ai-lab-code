@@ -7,8 +7,10 @@ from poisoned_ticket.ledger import Ledger
 from poisoned_ticket.models import attack_call, outcome_call
 
 
-def test_twelve_attacks_and_every_text_names_its_target(scenarios):
-    assert len(ATTACKS) == len(GOALS) * len(STYLES) == 12
+def test_two_tiers_of_attacks_and_every_text_names_its_target(scenarios):
+    assert len(ATTACKS) == len(GOALS) * len(STYLES) == 24
+    assert sum(a.tier == "tier1" for a in ATTACKS) == sum(a.tier == "tier2" for a in ATTACKS) == 12
+    assert all(a.channel == "message" for a in ATTACKS if a.tier == "tier1")
     s = scenarios[0]
     for a in ATTACKS:
         text = a.text(s)
