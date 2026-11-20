@@ -16,6 +16,7 @@ The AI Lab is where I test ideas about agents, MCP, RAG, evaluation and AI syste
 | [Judging the Judge: LLM-as-a-Judge, Calibrated](https://iambishal.com/ai-lab/projects/llm-judge-calibration-benchmark) | [`llm-judge-calibration-benchmark`](llm-judge-calibration-benchmark) | Evals · Applied AI |
 | [Ticket Thirty: Context Rot Inside a Tool Loop](https://iambishal.com/ai-lab/projects/context-rot-benchmark) | [`context-rot-benchmark`](context-rot-benchmark) | Agents · AI Architecture · Evals |
 | [The Bill for One Ticket: Agent Cost per Task, Measured](https://iambishal.com/ai-lab/projects/agent-cost-per-task-benchmark) | [`agent-cost-per-task-benchmark`](agent-cost-per-task-benchmark) | Agents · AI Architecture · Evals |
+| [The Unhappy Path: A Production MCP Server's Failure Path, Measured](https://iambishal.com/ai-lab/projects/mcp-failure-path-benchmark) | [`mcp-failure-path-benchmark`](mcp-failure-path-benchmark) | MCP · Agents · Evals |
 
 ## Use one folder
 
