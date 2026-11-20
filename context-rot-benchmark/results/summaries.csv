@@ -1,0 +1,11 @@
+model,policy,order,summaries,keeps_freeze,keeps_audit,mean_summary_tokens
+claude-haiku-5-5,summary,0,23,1.0,1.0,1527
+claude-haiku-5-5,summary+pin,0,23,1.0,1.0,2071
+claude-haiku-5-5,summary+pin,1,23,1.0,1.0,1838
+claude-haiku-5-5,summary,1,23,1.0,1.0,2283
+claude-haiku-5-5,summary+pin,2,23,1.0,1.0,1592
+claude-haiku-5-5,summary,2,23,1.0,1.0,2017
+claude-sonnet-5-5,summary+pin,0,23,1.0,1.0,2781
+claude-sonnet-5-5,summary,0,23,1.0,1.0,2888
+claude-sonnet-5-5,summary,1,23,1.0,1.0,1750
+claude-sonnet-5-5,summary+pin,1,23,1.0,1.0,2266

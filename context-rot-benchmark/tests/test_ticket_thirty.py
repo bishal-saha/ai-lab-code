@@ -148,7 +148,7 @@ def test_policies_shape_the_window():
         if policy == "clear":
             assert (
                 "A VERY LONG RECORD" not in text
-                and text.count("[cleared after") == 2
+                and text.count("[Result removed from the context after") == 2
                 and "frozen escalations" in text
             )
         if policy == "summary":

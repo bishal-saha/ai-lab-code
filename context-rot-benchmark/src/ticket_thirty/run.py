@@ -7,9 +7,12 @@
 
 Then `uv run python -m ticket_thirty.report` builds the tables and charts.
 
-    queue study   6 policies x 2 models x 3 queue orders, 24 tickets per run, one window per run
-    tools study   24 tickets x 2 tool sets (10 real tools, or 40 with look-alikes) x 2 models x 2 repeats,
-                  a fresh window per ticket
+    queue study   6 policies x 3 queue orders (Haiku) or 2 (Sonnet), 24 tickets per run, one window per run
+    tools study   24 tickets x 2 tool sets (10 real tools, or 40 with look-alikes) x 2 repeats (Haiku) or 1
+                  (Sonnet), a fresh window per ticket
+
+Sonnet runs fewer orders and repeats because the pilot measured its queues at about 20x Haiku's
+cost (a raw queue: $1.08); the full Sonnet matrix would have needed about $21.
 """
 
 from __future__ import annotations
@@ -34,6 +37,8 @@ ROOT = Path(__file__).resolve().parents[2]
 RESULTS = ROOT / "results"
 TOOL_SETS = ["core", "distractors"]
 TOOL_REPEATS = 2
+ORDERS_BY_MODEL = {"claude-sonnet-5-5": 2}  # others: ORDERS
+TOOL_REPEATS_BY_MODEL = {"claude-sonnet-5-5": 1}  # others: TOOL_REPEATS
 SUMMARISER_MODEL = "haiku"
 
 
@@ -51,13 +56,13 @@ def job_key(row: dict) -> tuple:
 def jobs(models: list[str], orders: int, tool_tickets: int, tool_repeats: int) -> list[dict]:
     out = []
     for m in models:
-        for o in range(orders):
+        for o in range(min(orders, ORDERS_BY_MODEL.get(resolve(m), orders))):
             out += [
                 {"study": "queue", "policy": p, "model": resolve(m), "order": o} for p in POLICIES
             ]
     scenarios = build_scenarios()
     for m in models:
-        for r in range(tool_repeats):
+        for r in range(min(tool_repeats, TOOL_REPEATS_BY_MODEL.get(resolve(m), tool_repeats))):
             for ts in TOOL_SETS:
                 out += [
                     {

@@ -61,8 +61,10 @@ This experiment gives one agent a **queue of 24 support tickets in one conversat
 - **Tool-count study:** each ticket alone in a fresh window, with the 10 real tools or with 30 look-alikes added (`lookup_order`, `refund_payment`, `issue_credit` …). Each look-alike refuses and names the right tool.
 - **Models:** Claude Haiku 5.5 and Sonnet 5.5 as the agent, effort `medium`, automatic prompt caching on the growing transcript. The summariser is Haiku at effort `low`.
 - **Matrix:**
-  - queue: 6 policies × 2 models × 3 queue orders (the same tickets, shuffled) = 36 queues, 864 tickets;
-  - tools: 24 tickets × 2 tool sets × 2 models × 2 repeats = 192 episodes.
+  - queue: 6 policies × 3 queue orders (the same tickets, shuffled) for Haiku, 2 for Sonnet = 30 queues, 720 tickets;
+  - tools: 24 tickets × 2 tool sets × 2 repeats for Haiku, 1 for Sonnet = 144 episodes.
+
+  Sonnet runs less because the pilot measured its queues at about 20× Haiku's cost (`ORDERS_BY_MODEL` in `run.py`).
 - **Grading** ([`grading.py`](src/ticket_thirty/grading.py)), from the ledger of tool calls only, never from what the agent says:
   - outcome under the freeze, and success (the outcome plus a bug report when one was due);
   - freeze violations and audit flags;
@@ -77,7 +79,7 @@ This experiment gives one agent a **queue of 24 support tickets in one conversat
 uv sync
 uv run pytest                          # tickets, tools, policies, grader, the dry run; offline
 uv run ticket-thirty --dry-run         # an oracle and a forgetful fake; $0
-uv run ticket-thirty --estimate        # what a live run should cost (about $11)
+uv run ticket-thirty --estimate        # a rough projection (it undercounts; the real run cost about $10.8)
 
 cp .env.example .env                   # add ANTHROPIC_API_KEY
 uv run --env-file .env ticket-thirty --pilot --max-usd 2
@@ -115,7 +117,7 @@ Then change something:
 
 ## Results
 
-Not run yet: the hypothesis above was written first. The results, with a verdict on each claim, will be in `RESULTS.md`.
+**No context rot inside the tool loop, and no instruction lost; the remedies changed cost, not accuracy.** Up to a 73k-token window, neither model declined from the first ticket to the last, and the escalation freeze held on all 150 tickets it applied to, even under the unpinned summary: the generic summariser kept both instructions in all 230 summaries. Trimming tool output cut Sonnet's cost per queue by 56% and a fresh window per ticket by 61%, at the same accuracy. Forty look-alike tools drew no wrong calls. Two flaws are disclosed: three tickets were over already-returned orders (the agent's handoffs there are counted as failures), and a first stub wording that broke `clear` in the pilot. Each claim is judged in [RESULTS.md](RESULTS.md).
 
 ## Licence
 

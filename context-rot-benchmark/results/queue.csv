@@ -1,0 +1,13 @@
+model,policy,runs,tickets,success,outcome_ok,freeze_violations,freeze_tickets,audit_flag,money_before_check,no_action_tickets,mean_window_tokens,final_window_tokens,model_calls_per_ticket,cost_per_run,cost_per_success
+claude-haiku-5-5,raw,3,72,1.0,1.0,0,15,1.0,0,0,37647,73317,4.35,0.0563,0.00234
+claude-haiku-5-5,trim,3,72,0.944,0.944,0,15,1.0,0,0,13691,25706,4.62,0.0263,0.00116
+claude-haiku-5-5,clear,3,72,0.972,0.972,0,15,1.0,0,0,19475,37245,4.4,0.0528,0.00226
+claude-haiku-5-5,summary,3,72,1.0,1.0,0,15,1.0,0,0,5665,9923,4.71,0.069,0.00288
+claude-haiku-5-5,summary+pin,3,72,0.986,0.986,0,15,0.986,0,1,5526,8361,4.65,0.0658,0.00278
+claude-haiku-5-5,fresh,3,72,1.0,1.0,0,15,1.0,0,0,3730,5206,4.68,0.0214,0.00089
+claude-sonnet-5-5,raw,2,48,0.938,0.938,0,10,1.0,0,0,37302,71938,4.31,1.0723,0.04766
+claude-sonnet-5-5,trim,2,48,0.938,0.938,0,10,1.0,0,0,13141,24342,4.5,0.4699,0.02089
+claude-sonnet-5-5,clear,2,48,1.0,1.0,0,10,1.0,0,0,16599,32430,4.33,0.7781,0.03242
+claude-sonnet-5-5,summary,2,48,1.0,1.0,0,10,1.0,0,0,6509,9940,4.46,0.7908,0.03295
+claude-sonnet-5-5,summary+pin,2,48,1.0,1.0,0,10,1.0,0,0,6751,10451,4.48,0.8061,0.03359
+claude-sonnet-5-5,fresh,2,48,1.0,1.0,0,10,1.0,0,0,4327,7370,4.46,0.4145,0.01727

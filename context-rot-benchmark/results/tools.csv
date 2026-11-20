@@ -1,0 +1,5 @@
+model,tools,episodes,success,wrong_tool_calls,episodes_with_wrong_tool,bad_argument_calls,audit_flag,mean_window_tokens,cost_per_episode
+claude-haiku-5-5,10,48,1.0,0,0,0,1.0,3807,0.00091
+claude-haiku-5-5,40,48,1.0,0,0,0,1.0,7210,0.00135
+claude-sonnet-5-5,10,24,1.0,0,0,0,1.0,4328,0.01104
+claude-sonnet-5-5,40,24,1.0,0,0,0,1.0,7540,0.03431

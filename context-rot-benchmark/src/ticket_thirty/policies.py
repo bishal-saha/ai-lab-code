@@ -83,6 +83,15 @@ def _text(t: str) -> list[dict]:
     return [{"type": "text", "text": t}]
 
 
+# The first wording, "[cleared after T-Q005 closed: order_status(order_id=...). Call it again if
+# needed.]", read as "you never had this result": in the pilot Haiku decided every result it had
+# received was a placeholder and stopped working on 9 of 24 tickets. A stub has to say what happened.
+STUB = (
+    "[Result removed from the context after {ticket} was finished, to save space. You received the full "
+    "result at the time and acted on it. The call was {call}; call the tool again if you need the details.]"
+)
+
+
 def _stub(log: TicketLog) -> list[dict]:
     """A closed ticket with every tool result replaced by a stub that keeps a reference."""
     names = {
@@ -108,7 +117,7 @@ def _stub(log: TicketLog) -> list[dict]:
                         {
                             "type": "tool_result",
                             "tool_use_id": b["tool_use_id"],
-                            "content": f"[cleared after {log.ticket_id} closed: {name}({ref}). Call it again if needed.]",
+                            "content": STUB.format(ticket=log.ticket_id, call=f"{name}({ref})"),
                         }
                     )
                 else:
