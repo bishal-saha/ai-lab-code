@@ -76,7 +76,7 @@ The dry run proves the grading before any money is spent:
 
 ### A fresh live run
 
-The runner skips any episode already in `results/episodes.jsonl`; that's how resume works. Once published episodes are committed there, move them aside first:
+The runner skips any episode already in `results/episodes.jsonl`; that's how resume works. The published episodes are committed there, so move them aside first:
 
 ```bash
 mv results results-published
@@ -108,7 +108,7 @@ Then change something. Each of these takes a few lines, and `--dry-run` or `pyte
 
 ## Results
 
-See [RESULTS.md](RESULTS.md) once the live run is in. The raw episodes, tables and charts will be in [`results/`](results).
+**On this task the shape decided cost and what got left undone, not correctness.** The single loop, planner-executor and multi-agent designs resolved all 576 of their tickets correctly, faults included, and no design ever moved money before checking. The graph workflow was the cheapest (3.4× cheaper per correct ticket than the loop) and fully predictable, but it silently dropped the bug report on every two-intent ticket. The planner cost the most (2.3× the loop) and left the customer without a reply on 80% of refunds. Each hypothesis claim is judged in [RESULTS.md](RESULTS.md); raw episodes, tables and charts are in [`results/`](results).
 
 ## Licence
 

@@ -1,0 +1,46 @@
+{
+  "started": "2026-11-20T15:31:35+00:00",
+  "last_run": "2026-11-20T15:33:24+00:00",
+  "models": [
+    "claude-haiku-5-5",
+    "claude-sonnet-5-5"
+  ],
+  "repeats": 3,
+  "scenarios": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "p7",
+    "p8",
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "s1",
+    "s2",
+    "n1",
+    "n2"
+  ],
+  "archs": [
+    "loop",
+    "graph",
+    "planner",
+    "multi"
+  ],
+  "conditions": [
+    "normal",
+    "faults"
+  ],
+  "seed": 2026,
+  "scale": 0.1,
+  "effort": "medium",
+  "max_llm_calls": 30,
+  "packages": {
+    "anthropic": "2.11.0",
+    "mcp": "2.3.0",
+    "kestrel-outfitters": "0.3.0"
+  }
+}

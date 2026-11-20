@@ -59,6 +59,10 @@ def predictability(rows: list[dict]) -> float | None:
     return round(statistics.mean(shares), 4) if shares else None
 
 
+def _replied(e: dict) -> bool:
+    return any(c["tool"] == "reply_to_customer" and c["ok"] for c in e["calls"])
+
+
 def summarise(rows: list[dict], by: tuple[str, ...] = ("model", "arch")) -> list[dict]:
     groups: dict[tuple, list[dict]] = defaultdict(list)
     for r in rows:
@@ -84,6 +88,12 @@ def summarise(rows: list[dict], by: tuple[str, ...] = ("model", "arch")) -> list
                 "missed_intent": _rate(multi, lambda e: e["missed_intent"]),
                 "to_human": _rate(eps, lambda e: e["to_human"]),
                 "duplicate_replies": _rate(eps, lambda e: e["duplicate_replies"] > 0),
+                # Not graded (the policy doesn't require a reply after a refund or escalation),
+                # but it is what the customer sees: were they told what happened?
+                "unreplied_money": _rate(
+                    [e for e in eps if e["outcome"] in ("refund", "escalate")],
+                    lambda e: not _replied(e),
+                ),
                 "invalid_plan": _rate(eps, lambda e: e["invalid_plans"] > 0),
                 "handoff_invalid": _rate(eps, lambda e: e["handoff_invalid"] > 0),
                 "predictability": predictability(eps),
@@ -221,35 +231,47 @@ def charts(summary: list[dict], rows: list[dict], out: Path) -> None:
         ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(0, -0.12), ncol=len(models))
         _save(fig, out / name)
 
-    # Failure modes: what goes wrong, per design (both models pooled).
+    # What each design left undone (both models pooled): the failures that actually happened were
+    # omissions, so this chart shows those next to the checks that never fired.
     modes = [
+        ("missed_intent", "Bug report dropped (two-intent tickets)"),
+        ("unreplied_money", "Customer not told (refund/escalate tickets)"),
+        ("duplicate_replies", "Customer told twice"),
         ("violation", "Money before the check"),
-        ("missed_intent", "Missed second intent"),
-        ("to_human", "Handed to a human"),
-        ("duplicate_replies", "Two replies"),
         ("invalid_plan", "Invalid plan proposed"),
     ]
     pooled = {s["arch"]: s for s in summarise(rows, ("arch",))}
-    fig, ax = plt.subplots(figsize=(9, 4.2), dpi=150)
+    fig, ax = plt.subplots(figsize=(9, 4.4), dpi=150)
     width = 0.8 / len(modes)
     for i, (metric, label) in enumerate(modes):
         values = [pooled.get(a, {}).get(metric) or 0 for a in ARCHS]
         xs = [j + (i - (len(modes) - 1) / 2) * width for j in range(len(ARCHS))]
-        ax.bar(
+        bars = ax.bar(
             xs,
             values,
             width,
             label=label,
-            color=["#c7d2fe", "#818cf8", "#4f46e5", "#3730a3", "#1e1b4b"][i],
+            color=["#818cf8", "#4f46e5", "#3730a3", "#c7d2fe", "#1e1b4b"][i],
         )
+        for bar, v in zip(bars, values, strict=True):
+            if v:
+                ax.annotate(
+                    f"{v:.0%}",
+                    (bar.get_x() + bar.get_width() / 2, bar.get_height()),
+                    ha="center",
+                    va="bottom",
+                    fontsize=7,
+                    xytext=(0, 2),
+                    textcoords="offset points",
+                )
     ax.set_xticks(range(len(ARCHS)), [ARCH_LABELS[a] for a in ARCHS], fontsize=9)
-    ax.set_ylim(0, 1.05)
+    ax.set_ylim(0, 1.1)
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
-    ax.set_ylabel("share of episodes (missed intent: of two-intent tickets)", fontsize=8)
-    ax.set_title("How each design fails", fontsize=12, loc="left", pad=12)
+    ax.set_ylabel("share of the relevant tickets", fontsize=8)
+    ax.set_title("What each design left undone", fontsize=12, loc="left", pad=12)
     ax.spines[["top", "right"]].set_visible(False)
-    ax.legend(frameon=False, fontsize=8, loc="upper left", bbox_to_anchor=(0, -0.12), ncol=3)
-    _save(fig, out / "failure-modes")
+    ax.legend(frameon=False, fontsize=8, loc="upper left", bbox_to_anchor=(0, -0.12), ncol=2)
+    _save(fig, out / "left-undone")
 
 
 def _write_csv(path: Path, rows: list[dict]) -> None:
