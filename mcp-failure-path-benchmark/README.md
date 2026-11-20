@@ -107,7 +107,7 @@ Then change something:
 
 ## Results
 
-Not run yet: the hypothesis above was written first. The results, with a verdict on each claim, will be in `RESULTS.md`.
+**The production server finished every task on both models; the quickstart finished 43% on Haiku and 89% on Sonnet.** Without totals Haiku reported the 20-ticket page as the whole answer; with free strings both models invented values like "closed" and "critical", and Haiku reported the empty result as zero; told a refusal was final, both models stopped after one attempt, but after "Request failed." they retried. The surprise: without idempotency keys there were no duplicates, because an honest "may or may not have been posted" and a ticket that shows its notes made both models check first; after an opaque error Haiku duplicated the note 12 times out of 12. Two flaws found in the pilot are disclosed and fixed. Each claim is judged in [RESULTS.md](RESULTS.md).
 
 ## Licence
 

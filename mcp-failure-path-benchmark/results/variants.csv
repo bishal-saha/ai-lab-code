@@ -1,0 +1,13 @@
+model,variant,episodes,success,duplicates,silent_wrong,gave_up,repeats_of_failed_calls,extra_locked_posts,no_answer,mean_calls,cost_per_episode
+claude-haiku-5-5,quickstart,72,0.431,12,33,0,40,20,0,2.88,0.0005
+claude-haiku-5-5,production,72,1.0,0,0,0,24,0,0,2.01,0.00039
+claude-haiku-5-5,prod-no-errors,72,0.875,0,0,0,45,21,0,2.62,0.00041
+claude-haiku-5-5,prod-no-schema,72,0.958,0,3,0,24,0,0,2.68,0.00049
+claude-haiku-5-5,prod-no-pages,72,0.958,0,3,0,24,0,0,2.65,0.00049
+claude-haiku-5-5,prod-no-keys,72,1.0,0,0,0,12,0,0,2.03,0.00035
+claude-sonnet-5-5,quickstart,72,0.889,4,8,0,22,12,0,3.19,0.00954
+claude-sonnet-5-5,production,72,1.0,0,0,0,24,0,0,1.71,0.00588
+claude-sonnet-5-5,prod-no-errors,72,0.972,0,0,0,28,14,0,2.22,0.00513
+claude-sonnet-5-5,prod-no-schema,72,1.0,0,0,0,24,0,0,2.11,0.00703
+claude-sonnet-5-5,prod-no-pages,72,1.0,0,0,0,24,0,0,2.57,0.00786
+claude-sonnet-5-5,prod-no-keys,72,1.0,0,0,0,12,0,0,1.71,0.00416

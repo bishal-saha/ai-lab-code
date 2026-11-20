@@ -66,7 +66,8 @@ def build_tasks() -> list[Task]:
             Task(
                 f"nf-{t.id}",
                 "not_found",
-                f'{name} says their ticket {bad} about "{t.subject}" hasn\'t been answered. Add an internal note to their ticket: "{NOTE}"',
+                f'{name} says their ticket {bad} about "{t.subject}" hasn\'t been answered. They may have the ticket number wrong. '
+                f'Add an internal note to their ticket: "{NOTE}"',
                 comment_on=t.id,
             )
         )

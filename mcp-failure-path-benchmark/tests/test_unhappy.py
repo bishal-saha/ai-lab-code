@@ -131,3 +131,17 @@ def test_grader():
 
 def test_dry_run():
     assert dry_run() == 0
+
+
+def test_a_ticket_shows_its_comments(data):
+    """A write can be checked: after a dropped write, get_ticket shows the note that landed."""
+    out, api, _ = _call(
+        "prod-no-keys",
+        Faults(drop_write_once="T-000009"),
+        [
+            ("add_ticket_comment", {"ticket_id": "T-000009", "body": "Replacement dispatched."}),
+            ("get_ticket", {"ticket_id": "T-000009"}),
+        ],
+        data,
+    )
+    assert out[0][0] and "Comments:\n- internal note: Replacement dispatched." in out[1][1]

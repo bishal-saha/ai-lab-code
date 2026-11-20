@@ -352,7 +352,14 @@ def build_server(variant: str, api: TicketingAPI, ledger: Ledger) -> MCPServer:
             )
         ledger.calls.append(Call("get_ticket", args, True))
         msgs = "\n".join(f"- {m.author} on {m.sent_at.date()}: {m.body}" for m in t.messages)
-        return line(t) + "\n\nMessages:\n" + msgs
+        notes = [
+            c for c in api.comments if c.ticket_id == t.id
+        ]  # a real ticket shows its notes, so a write can be checked
+        shown = (
+            "\n".join(f"- {'internal note' if c.internal else 'reply'}: {c.body}" for c in notes)
+            or "(none)"
+        )
+        return line(t) + "\n\nMessages:\n" + msgs + "\n\nComments:\n" + shown
 
     @server.tool(description=COMMENT_DOC)
     def add_ticket_comment(
