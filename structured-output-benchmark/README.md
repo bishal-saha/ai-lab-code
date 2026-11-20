@@ -103,7 +103,7 @@ Then change something:
 
 ## Results
 
-See [RESULTS.md](RESULTS.md) once the live run is in. The raw records, tables and charts will be in [`results/`](results).
+**The models read every value trap correctly; every error came from the schema.** Across 1,620 parsed records there was not one wrong total, subtotal, date or invoice number. A closed currency enum made structured outputs record USD on all 30 JPY/CAD records (schema-valid, wrong). The tool conditions didn't call the tool at all on those invoices, and an optional due date was dropped 4 times. The designed schema (descriptions, `OTHER`, a required-but-nullable due date) took structured outputs from 88% to 100% fully right on both models. Each claim is judged in [RESULTS.md](RESULTS.md); raw records, tables and charts are in [`results/`](results).
 
 ## Licence
 

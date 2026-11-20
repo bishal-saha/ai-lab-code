@@ -1,0 +1,23 @@
+{
+  "last_run": "2026-11-20T17:39:25+00:00",
+  "models": [
+    "claude-haiku-5-5",
+    "claude-sonnet-5-5"
+  ],
+  "conditions": [
+    "prompt",
+    "tool",
+    "strict",
+    "so",
+    "so+d",
+    "so+d-n",
+    "so+d+v"
+  ],
+  "invoices": 120,
+  "effort": "medium",
+  "packages": {
+    "anthropic": "2.12.0",
+    "jsonschema": "4.26.0",
+    "kestrel-outfitters": "0.3.0"
+  }
+}

@@ -19,7 +19,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 from right_shape.grading import FIELDS  # noqa: E402
-from right_shape.invoices import TRAPS  # noqa: E402
+from right_shape.invoices import TRAPS, build, dataset  # noqa: E402
 from right_shape.run import CONDITIONS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -44,6 +44,20 @@ def load() -> list[dict]:
         for line in (RESULTS / "extractions.jsonl").read_text().splitlines()
         if line.strip()
     ]
+
+
+_TRUTH: dict = {}
+
+
+def _money_error(r: dict) -> bool:
+    """A money field the grader doesn't score (discount, tax, shipping) differs from the invoice."""
+    if not _TRUTH:
+        _TRUTH.update({i.id: i for i in build(dataset())})
+    inv, rec = _TRUTH[r["invoice"]], r["record"] or {}
+    tol = 0.5 if inv.currency == "JPY" else 0.011
+    return any(
+        abs(float(rec.get(f, 0)) - getattr(inv, f)) > tol for f in ("discount", "tax", "shipping")
+    )
 
 
 def _rate(rows, pred) -> float | None:
@@ -82,7 +96,14 @@ def summarise(rows: list[dict], by=("model", "condition")) -> list[dict]:
                     lambda r: not r["fields"]["due_date"],
                 ),
                 "rules_catch": _rate(first_wrong, lambda r: r["rule_errors"]),
-                "rules_false_alarm": _rate(first_right, lambda r: r["rule_errors"]),
+                # Flags on records whose scored fields are right: either a real error in an unscored
+                # money field (discount, tax, shipping), or a true false alarm.
+                "rules_flag_unscored_error": sum(
+                    bool(r["rule_errors"]) and _money_error(r) for r in first_right
+                ),
+                "rules_false_alarm": _rate(
+                    first_right, lambda r: r["rule_errors"] and not _money_error(r)
+                ),
                 "retried": _rate(g, lambda r: r["retried"]),
                 "repaired": sum(
                     r["retried"] and not r["first_all_correct"] and r["all_correct"] for r in g
@@ -181,50 +202,51 @@ def charts(rows: list[dict], out: Path) -> None:
     ax.set_title("Every field right, by trap (both models)", fontsize=12, loc="left", pad=10)
     _save(fig, out / "accuracy-by-trap")
 
-    rows_v = [r for r in rows if r["condition"] == "so+d+v"]
-    if rows_v:
-        v = summarise(rows_v, ("model",))
-        fig, ax = plt.subplots(figsize=(7.4, 4.2), dpi=150)
-        metrics = [
-            ("rules_catch", "wrong records the rules flagged"),
-            ("rules_false_alarm", "right records flagged (false alarm)"),
+    # What each condition did with a JPY or CAD invoice (both models): the closed-enum failure.
+    outcomes = [
+        ("other", "OTHER: flagged for review", "#4f46e5"),
+        ("real", "the real code, breaking the schema", "#a5b4fc"),
+        ("forced", "USD/GBP/EUR: valid but wrong", "#1e1b4b"),
+        ("none", "no record at all", "#e0e7ff"),
+    ]
+
+    def outcome(r: dict) -> str:
+        if not r["record"]:
+            return "none"
+        cur = str(r["record"].get("currency", "")).upper()
+        return "other" if cur == "OTHER" else "real" if cur in ("JPY", "CAD") else "forced"
+
+    cur_rows = [r for r in rows if r["trap"] == "currency"]
+    conds = [c for c in CONDS if any(r["condition"] == c for r in cur_rows)]
+    fig, ax = plt.subplots(figsize=(8.6, 4.4), dpi=150)
+    left = [0.0] * len(conds)
+    for key, label, colour in outcomes:
+        vals = [
+            sum(outcome(r) == key for r in cur_rows if r["condition"] == c)
+            / max(1, sum(r["condition"] == c for r in cur_rows))
+            for c in conds
         ]
-        xs = range(len(v))
-        for i, (k, label) in enumerate(metrics):
-            vals = [x[k] or 0 for x in v]
-            bars = ax.bar(
-                [x + (i - 0.5) * 0.38 for x in xs],
-                vals,
-                0.38,
-                label=label,
-                color=["#4f46e5", "#c7d2fe"][i],
-            )
-            for bar, val in zip(bars, vals, strict=True):
-                ax.annotate(
-                    f"{val:.0%}",
-                    (bar.get_x() + bar.get_width() / 2, val),
+        ax.barh(range(len(conds)), vals, left=left, color=colour, label=label)
+        for i, v in enumerate(vals):
+            if v >= 0.08:
+                ax.text(
+                    left[i] + v / 2,
+                    i,
+                    f"{v:.0%}",
                     ha="center",
-                    va="bottom",
+                    va="center",
                     fontsize=8,
-                    xytext=(0, 2),
-                    textcoords="offset points",
+                    color="white" if colour in ("#4f46e5", "#1e1b4b") else "#1e1b4b",
                 )
-        ax.set_xticks(
-            list(xs),
-            [
-                f"{SHORT.get(x['model'], x['model'])}\n{x['repaired']} repaired by one retry"
-                for x in v
-            ],
-            fontsize=9,
-        )
-        ax.set_ylim(0, 1.12)
-        ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
-        ax.set_title(
-            "What business rules caught after the schema passed", fontsize=12, loc="left", pad=10
-        )
-        ax.spines[["top", "right"]].set_visible(False)
-        ax.legend(frameon=False, fontsize=8, loc="upper left", bbox_to_anchor=(0, -0.16), ncol=2)
-        _save(fig, out / "rules")
+        left = [a + b for a, b in zip(left, vals, strict=True)]
+    ax.set_yticks(range(len(conds)), conds, fontsize=9)
+    ax.invert_yaxis()
+    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+    ax.set_xlim(0, 1)
+    ax.set_title("What happened to a JPY or CAD invoice", fontsize=12, loc="left", pad=10)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.legend(frameon=False, fontsize=8, loc="upper left", bbox_to_anchor=(0, -0.08), ncol=2)
+    _save(fig, out / "closed-enum")
 
 
 def _write_csv(path: Path, rows: list[dict]) -> None:
